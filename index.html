@@ -1,35 +1,1239 @@
-<!-- Research Publications -->
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('publications')">
-                <div class="section-title">
-                    <span class="icon">📝</span>
-                    Research Publications (21 Publications)
-                </div>
-                <button class="expand-btn">View Publications</button>
-            </div>
-            <div class="section-content" id="publications-content">
-                <div class="publications-grid">
-                    <div class="publication-item">
-                        <a href="https://teknosi.fti.unand.ac.id/index.php/teknosi/article/view/3395" class="pub-link" target="_blank">🔗</a>
-                        <div class="pub-year">2025</div>
-                        <h3 class="pub-title">Implementasi Machine Learning dalam Sistem Prediksi dan Rekomendasi Program Diet Terintegrasi LLM</h3>
-                        <p class="pub-journal">Jurnal Nasional Teknologi dan Sistem Informasi 11 (2), 144-151</p>
-                        <p class="pub-authors">ES Sintiya, SR Amanda, CB Vista, AN Pramudhita</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agung N. Pramudhita - Academic Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #93c5fd;
+            --secondary: #4f46e5;
+            --accent: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f9fafb;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 20px;
+        }
+        
+        .profile-name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .profile-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            opacity: 0.9;
+            position: relative;
+        }
+        
+        .profile-institution {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+            position: relative;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            position: relative;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.95rem;
+        }
+        
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-item {
+            background: var(--card-bg);
+            padding: 25px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        /* Section Styling */
+        .section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            background: var(--card-bg);
+        }
+        
+        .section-header:hover {
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+        }
+        
+        .expand-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .expand-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .section-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        
+        .section-content.active {
+            padding: 25px;
+            max-height: 5000px;
+        }
+        
+        /* Cards */
+        .education-item, .employment-item, .publication-item, .conference-item, .training-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .education-item:hover, .employment-item:hover, .publication-item:hover, .conference-item:hover, .training-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-light);
+        }
+        
+        .degree-title, .position-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+        
+        .institution, .employer {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .duration {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .grade {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        /* Publication Items */
+        .pub-year {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .pub-title {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+            font-size: 1.05rem;
+        }
+        
+        .pub-journal {
+            color: var(--primary);
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .pub-authors {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .pub-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            transition: var(--transition);
+        }
+        
+        .pub-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Award Items */
+        .award-item {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .award-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .award-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Research Vision */
+        .research-vision {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .research-vision h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .research-vision p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        /* Toggle All Button */
+        .toggle-all {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toggle-all:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Hidden content that will be shown when clicking "View All" */
+        .hidden-content {
+            display: none;
+        }
+        
+        .show-all .hidden-content {
+            display: block;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .profile-name {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .toggle-all {
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .expand-btn {
+                align-self: flex-end;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-name {
+                font-size: 1.8rem;
+            }
+            
+            .profile-title {
+                font-size: 1.2rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Profile -->
+        <div class="header">
+            <div class="profile-container">
+                <img src="https://let.polinema.ac.id/assets/images/whatsapp-image-2024-01-16-at-16.22.54-40cb242d.jpg" alt="Agung N. Pramudhita" class="profile-image">
+                <h1 class="profile-name">Agung N. Pramudhita</h1>
+                <p class="profile-title">Lecturer & Researcher</p>
+                <p class="profile-institution">Department of Information Technology<br>Politeknik Negeri Malang, Indonesia</p>
+                <p>agung.pramudhita@polinema.ac.id</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Malang, East Java, Indonesia</span>
                     </div>
-                    <div class="publication-item">
-                        <a href="https://pustakagalerimandiri.co.id/jurnalpgm/index.php/pustakamitra/article/view/910" class="pub-link" target="_blank">🔗</a>
-                        <div class="pub-year">2025</div>
-                        <h3 class="pub-title">Pengembangan Aplikasi Absensi Berbasis Website sebagai Solusi Administrasi di SMK Widyagama</h3>
-                        <p class="pub-journal">Jurnal Pustaka Mitra (Pusat Akses Kajian Mengabdi Terhadap Masyarakat) 5 (3)</p>
-                        <p class="pub-authors">EN Hamdana, ME Apriyani, AN Pramudhita, A Ismail, FA Pribadi, ...</p>
+                    <div class="contact-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>February, 1989 | Indonesian Citizen</span>
                     </div>
-                    <div class="publication-item">
-                        <a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/view/6534" class="pub-link" target="_blank">🔗</a>
-                        <div class="pub-year">2025</div>
-                        <h3 class="pub-title">Development of e-learning gamification to improve mathematics learning results</h3>
-                        <p class="pub-journal">Intelligence: Journal Mathematics Education 14 (2), 102-115</p>
-                        <p class="pub-authors">OD Triswidrananta, AN Pramudhita, WT Wahono, EMS Wijaya</p>
+                    <div class="contact-item">
+                        <i class="fas fa-briefcase"></i>
+                        <span>System Analyst Background</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Research Impact Stats -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">21+</span>
+                <div class="stat-label">Research Publications</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <div class="stat-label">Conference Presentations</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <div class="stat-label">International Awards</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">7+</span>
+                <div class="stat-label">Years Teaching Experience</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <div class="stat-label">Major Research Areas</div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('education')">
+                <div class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education & Academic Background
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Education</button>
+            </div>
+            <div class="section-content" id="education-content">
+                <div class="grid-2">
+                    <div class="education-item">
+                        <h3 class="degree-title">Master of Engineering - Electronics Engineering</h3>
+                        <p class="institution">Brawijaya University, Indonesia</p>
+                        <span class="duration">2012 - 2015</span>
+                        <span class="grade">GPA: 3.70/4.00</span>
+                        <p style="margin-top: 15px; color: var(--text-light);"><strong>Research Duration:</strong> 1 year<br>
+                        <strong>Specialization:</strong> Telecommunication and Informatics Systems</p>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="degree-title">Bachelor of Engineering - Electronics Engineering</h3>
+                        <p class="institution">Brawijaya University, Indonesia</p>
+                        <span class="duration">2007 - 2012</span>
+                        <span class="grade">GPA: 3.13/4.00</span>
+                        <p style="margin-top: 15px; color: var(--text-light);"><strong>Research Duration:</strong> 6 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Training -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('training')">
+                <div class="section-title">
+                    <i class="fas fa-certificate"></i>
+                    Professional Training & Certifications
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Training</button>
+            </div>
+            <div class="section-content" id="training-content">
+                <div class="grid-3">
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Aus4ASEAN: New Technologies in TVET</h3>
+                        <p class="institution">Queensland University of Technology</p>
+                        <span class="duration">July - August 2024</span>
+                        <p style="margin-top: 15px; color: var(--text-light); line-height: 1.6;">Policies for TVET digitization, technological advancement adaptation, skills identification for tech jobs, worker transition facilitation, and government-private sector partnerships.</p>
+                    </div>
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Technology Literacy for Educators</h3>
+                        <p class="institution">Microsoft</p>
+                        <span class="duration">December 2021</span>
+                        <p style="margin-top: 15px; color: var(--text-light); line-height: 1.6;">Technology integration for student collaboration, communication, active learning, and ICT utilization in lesson planning and assessment.</p>
+                    </div>
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Business Analyst</h3>
+                        <p class="institution">Inixindo</p>
+                        <span class="duration">September 2022</span>
+                        <p style="margin-top: 15px; color: var(--text-light); line-height: 1.6;">Advanced analytical skills, strategic communication techniques, and practical tools for interpreting data, documenting requirements, and understanding business processes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employment History -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('employment')">
+                <div class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Professional Experience
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Experience</button>
+            </div>
+            <div class="section-content" id="employment-content">
+                <div class="employment-item">
+                    <h3 class="position-title">Assistant Professor (Full-time)</h3>
+                    <p class="employer">Politeknik Negeri Malang | Department of Information Technology</p>
+                    <span class="duration">2018 - Present</span>
+                    <div style="margin-top: 20px;">
+                        <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 15px;"><strong>Specialization:</strong> Technology-Enhanced Learning and IoT</p>
+                        <p style="color: var(--text-light); line-height: 1.7;"><strong>Key Responsibilities:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-light); line-height: 1.6;">
+                            <li>Teaching courses in IT, IoT, and Technology-Enhanced Learning</li>
+                            <li>Supervising practical projects and student internships</li>
+                            <li>Conducting research in IoT and educational technology</li>
+                            <li>Securing grants and fostering industry collaborations</li>
+                            <li>Curriculum design and accreditation processes</li>
+                            <li>Community engagement through workshops and partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="employment-item">
+                    <h3 class="position-title">System Analyst</h3>
+                    <p class="employer">Technobit Indonesia</p>
+                    <span class="duration">2015 - 2018</span>
+                    <div style="margin-top: 20px;">
+                        <p style="color: var(--text-light); line-height: 1.7;"><strong>Key Responsibilities:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-light); line-height: 1.6;">
+                            <li>Requirement analysis and stakeholder collaboration</li>
+                            <li>System design and technical specification development</li>
+                            <li>Implementation oversight and team coordination</li>
+                            <li>System optimization and performance troubleshooting</li>
+                            <li>Comprehensive documentation creation and maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="employment-item">
+                    <h3 class="position-title">Trainer/Mentor</h3>
+                    <p class="employer">Kiass People Development Center</p>
+                    <span class="duration">2011 - 2015</span>
+                    <div style="margin-top: 20px;">
+                        <p style="color: var(--text-light); line-height: 1.7;"><strong>Training Areas:</strong> Public Speaking, Entrepreneurship, Service Excellence, Self-Development</p>
+                        <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-light); line-height: 1.6;">
+                            <li>Delivering engaging training sessions</li>
+                            <li>Mentoring individuals for skill development</li>
+                            <li>Content development and material design</li>
+                            <li>Performance assessment and feedback provision</li>
+                            <li>Program improvement based on participant feedback</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Publications -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('publications')">
+                <div class="section-title">
+                    <i class="fas fa-file-alt"></i>
+                    Research Publications (26 Publications)
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Publications</button>
+            </div>
+            <div class="section-content" id="publications-content">
+                <div class="grid-2">
+                    <!-- First 4 publications shown by default -->
+                    <div class="publication-item">
+                        <div class="pub-year">2025</div>
+                        <h3 class="pub-title">IoT-based crash detection system</h3>
+                        <p class="pub-journal">PROCEEDINGS OF THE 7TH INTERNATIONAL CONFERENCE ON APPLIED SCIENCE AND TECHNOLOGY: ICAST2024</p>
+                        <p class="pub-authors">AN Pramudhita, ME Apriyani, IA Mashudi, OD Triswidrananta</p>
+                        <a href="https://pubs.aip.org/aip/acp/article-abstract/3334/1/030008/3370126/IoT-based-crash-detection-system" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-year">2025</div>
+                        <h3 class="pub-title">Implementasi Machine Learning dalam Sistem Prediksi dan Rekomendasi Program Diet Terintegrasi LLM</h3>
+                        <p class="pub-journal">Jurnal Nasional Teknologi dan Sistem Informasi 11 (2), 144-151</p>
+                        <p class="pub-authors">ES Sintiya, SR Amanda, CB Vista, AN Pramudhita</p>
+                        <a href="https://teknosi.fti.unand.ac.id/index.php/teknosi/article/view/3395" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-year">2025</div>
+                        <h3 class="pub-title">Pengembangan Aplikasi Absensi Berbasis Website sebagai Solusi Administrasi di SMK Widyagama</h3>
+                        <p class="pub-journal">Jurnal Pustaka Mitra (Pusat Akses Kajian Mengabdi Terhadap Masyarakat) 5 (3)</p>
+                        <p class="pub-authors">EN Hamdana, ME Apriyani, AN Pramudhita, A Ismail, FA Pribadi, ...</p>
+                        <a href="https://pustakagalerimandiri.co.id/jurnalpgm/index.php/pustakamitra/article/view/910" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-year">2025</div>
+                        <h3 class="pub-title">Development of e-learning gamification to improve mathematics learning results</h3>
+                        <p class="pub-journal">Intelligence: Journal Mathematics Education 14 (2), 102-115</p>
+                        <p class="pub-authors">OD Triswidrananta, AN Pramudhita, WT Wahono, EMS Wijaya</p>
+                        <a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/view/6534" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-year">2024</div>
+                        <h3 class="pub-title">Application of the WASPAS Method to the Decision Support System for the Selection of Securities Companies</h3>
+                        <p class="pub-journal">Journal of Multidisciplinary Inquiry in Science, Technology and Educational Research</p>
+                        <p class="pub-authors">Kevin Aldyansyah, <strong>Agung Nugroho Pramudhita</strong>, Dian Hanifudin Subhi</p>
+                        <a href="https://jurnal.serambimekkah.ac.id/index.php/mister/article/download/2163/1718" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                    <div class="publication-item">
+                        <div class="pub-year">2024</div>
+                        <h3 class="pub-title">Boosting Literacy with an Educational RPG for Polytechnic Students</h3>
+                        <p class="pub-journal">International Conference on Computers in Education</p>
+                        <p class="pub-authors"><strong>Agung Nugroho Pramudhita</strong>, Pan Mawangi, BS Andoko</p>
+                        <a href="https://library.apsce.net/index.php/ICCE/article/view/5036" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                    
+                    <!-- Hidden publications that will be shown when clicking "View All" -->
+                    <div class="publication-item hidden-content">
+                        <a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/download/5907/pdf" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2024</div>
+                        <h3 class="pub-title">Augmented Reality Educational Game Based On RME (Realistic Mathematics Education) To Improve Students' Computational Thinking</h3>
+                        <p class="pub-journal">Inteligensi: Jurnal Ilmu Pendidikan</p>
+                        <p class="pub-authors">Odhitya Desta Triswidrananta, <strong>Agung Nugroho Pramudhita</strong>, Elita Mega Selvia Wijaya</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2024</div>
+                        <h3 class="pub-title">Development of Sensor-Based Fire Detection Devices for Electronic Security</h3>
+                        <p class="pub-journal">Komputika: Jurnal Sistem Komputer</p>
+                        <p class="pub-authors">R. Muhammad Azmi Herdi Shofiyullah, Iqshan Bagus Prasetyo, Muhammad As'as Prabowo, Ramona Andhani, <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="http://shift.sin.fst.uin-alauddin.ac.id/index.php/shift/article/download/100/37" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2024</div>
+                        <h3 class="pub-title">Implementation of NodeMCU and Blynk in IoT-Based Fire Detection Systems</h3>
+                        <p class="pub-journal">Journal Software, Hardware and Information Technology</p>
+                        <p class="pub-authors">Nurlaily Asronika, Alifiyul Akyun, Nadhifah Lutfiyah Mahmudah, Rofiqoh Wahyuningtyas, <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Curriculum Design for the Applied Undergraduate Business Information System Study Program: Focus on learning Outcomes required in Indonesia</h3>
+                        <p class="pub-journal">Nusantara Science and Technology Proceedings</p>
+                        <p class="pub-authors">Meyti Eka Apriyani, <strong>Agung Nugroho Pramudhita</strong>, Indra Dharma Wijaya</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Design And Implementation Of MQTT Protocol on IoT-Based Smart Parking System</h3>
+                        <p class="pub-journal">Jurnal Informatika dan Teknik Elektro Terapan</p>
+                        <p class="pub-authors">Multiple authors including <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://www.bajangjournal.com/index.php/J-ABDI/article/download/6761/5202" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Assistance In Making Educational Props for Teachers of The Asparaga Early Childhood Education</h3>
+                        <p class="pub-journal">J-ABDI: Jurnal Pengabdian kepada Masyarakat</p>
+                        <p class="pub-authors">Elok Nur Hamdana, Meyti Eka Apriyani, <strong>Agung Nugroho Pramudhita</strong>, Ekojono, Rawansyah, Imam Fahrur Rozi</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://www.jurnal.polgan.ac.id/index.php/sinkron/article/download/12514/1738" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Digital Forensic Investigates Sexual Harassment on Telegram using Naïve Bayes</h3>
+                        <p class="pub-journal">Jurnal dan Penelitian Teknik Informatika</p>
+                        <p class="pub-authors">Meyti Eka Apriyani, Rahmad Alfian Maskuri, Muhammad Hasyim Ratsanjani, <strong>Agung Nugroho Pramudhita</strong>, Rawansyah</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://jurnal.polinema.ac.id/index.php/j-indeks/article/download/3885/3154" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Designing an Online Classroom Learning Platform for Mamina Mom and Baby Treatment Malang</h3>
+                        <p class="pub-journal">Jurnal Pengabdian pada Masyarakat Ilmu Pengetahuan and Teknologi</p>
+                        <p class="pub-authors"><strong>Agung Nugroho Pramudhita</strong>, Meyti Eka Apriyani, Elok Nur Hamdana, Farid Angga Pribadi, Deddy Kusbianto Purwoko Aji, Triana Fatmawati</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Farm Automation With Soil Moisture Sensors, Light Sensors, Led Grow Lamps, And Water Pumps For Optimal Plant Growth</h3>
+                        <p class="pub-journal">Jurnal Informatika dan Teknik Elektro Terapan</p>
+                        <p class="pub-authors">Multiple authors including <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://journals.usm.ac.id/index.php/transformatika/article/view/6274" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Identifying Heart Disease Using Machine Learning: A Comparative Study</h3>
+                        <p class="pub-journal">Jurnal Transformatika</p>
+                        <p class="pub-authors">Endah Septa Sintiya, Rizdania Rizdania, Ashri Shabrina Afrah, <strong>Agung Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <div class="pub-year">2023</div>
+                        <h3 class="pub-title">Design of IoT-Based Smart Birdcage</h3>
+                        <p class="pub-journal">Jurnal Teknologi dan Manajemen Informatika</p>
+                        <p class="pub-authors">Multiple authors including <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://d1wqtxts1xzle7.cloudfront.net/81682214/10847-libre.pdf" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2022</div>
+                        <h3 class="pub-title">Learning Management System Based on Assessment for Learning to Improve Computational Thinking</h3>
+                        <p class="pub-journal">iJIM - International Journal of Interactive Mobile Technologies (Q2 Journal)</p>
+                        <p class="pub-authors">Odhitya Desta Triswidrananta, <strong>Agung Nugroho Pramudhita</strong>, Indra Dharma Wijaya</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://jtit.polije.ac.id/index.php/jtit/article/download/266/149" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2022</div>
+                        <h3 class="pub-title">Designing the Alumni Information System User Interface Using Webuse and User-Centered Design Method</h3>
+                        <p class="pub-journal">Jurnal Teknologi Informasi dan Terapan</p>
+                        <p class="pub-authors"><strong>Agung Nugroho Pramudhita</strong>, Putra Prima Arhandi, Ferina Bayu Sukmadewi</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://library.oapen.org/bitstream/handle/20.500.12657/57592/1/9781000644173.pdf#page=111" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2022</div>
+                        <h3 class="pub-title">Improving vocational education quality through life-based learning</h3>
+                        <p class="pub-journal">Book Chapter - Improving Assessment and Evaluation Strategies on Online Learning</p>
+                        <p class="pub-authors">Yoto, P.A.N. Mawangi, <strong>A.N. Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://jurnal.polinema.ac.id/index.php/jip/article/download/2586/2044" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2021</div>
+                        <h3 class="pub-title">Analysis of Forecasting Land Business Opportunities Using the Double Exponential Smoothing Method</h3>
+                        <p class="pub-journal">Jurnal Informatika Polinema</p>
+                        <p class="pub-authors">Eka Larasati Amalia, <strong>Agung Nugroho Pramudhita</strong>, Muhammad Haidar Hammam</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://snatika.stiki.ac.id/SMATIKA/article/download/536/396" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2021</div>
+                        <h3 class="pub-title">Implementation of Papaya Fruit Ripeness Detection System Using the RGB Method</h3>
+                        <p class="pub-journal">SMATIKA JURNAL</p>
+                        <p class="pub-authors">Krista Bella Dwi Rahayu Nur Widyasari, Ulla Delfana Rosiani, <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://ejournal.uin-malang.ac.id/index.php/saintek/article/download/11566/8590" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2021</div>
+                        <h3 class="pub-title">Smart Grid for Electricity Consumption Efficiency in Production Processes in the Manufacturing Industry</h3>
+                        <p class="pub-journal">MATICS</p>
+                        <p class="pub-authors"><strong>Agung N. Pramudhita</strong>, Puteri A. N. Mawangi</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="http://ejournal.unisblitar.ac.id/index.php/antivirus/article/view/715/675" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2019</div>
+                        <h3 class="pub-title">Decision Support System for Determining the Location of Chicken Farm Development Using the MOORA Method</h3>
+                        <p class="pub-journal">ANTIVIRUS</p>
+                        <p class="pub-authors">Eka Larasati Amalia, <strong>Agung Nugroho Pramudhita</strong>, M Ridlwan Aditya</p>
+                    </div>
+                    
+                    <div class="publication-item hidden-content">
+                        <a href="https://journal.trunojoyo.ac.id/edutic/article/download/4381/3177" class="pub-link" target="_blank">🔗</a>
+                        <div class="pub-year">2018</div>
+                        <h3 class="pub-title">IoT-Based Integrated Service System in Healthcare Facilities</h3>
+                        <p class="pub-journal">Edutic</p>
+                        <p class="pub-authors"><strong>Agung Nugroho Pramudhita</strong>, Abdul Muhsyi, Mungki Astiningrum</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="expand-btn" id="view-all-pubs">
+                        <i class="fas fa-list"></i> View All Publications
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conference Presentations -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('conferences')">
+                <div class="section-title">
+                    <i class="fas fa-microphone"></i>
+                    Conference Presentations & Talks
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Conferences</button>
+            </div>
+            <div class="section-content" id="conferences-content">
+                <div class="grid-2">
+                    <!-- First 4 conferences shown by default -->
+                    <div class="conference-item">
+                        <span class="duration">Poster</span>
+                        <h3 class="pub-title">Boosting Literacy with an Educational RPG For Polytechnic Students</h3>
+                        <p class="pub-journal">ICCE 2024 - Manila, Philippines</p>
+                        <p class="pub-authors">The 32nd International Conference on Computers in Education</p>
+                        <p class="pub-authors"><strong>Authors:</strong> <strong>Agung Nugroho Pramudhita</strong>, Puteri Ardista Nursisda Mawangi, Banni Satria Andoko</p>
+                    </div>
+                    <div class="conference-item">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">Analyzing Student Behavior in Viat-map: Steps and Time as Performance Indicators</h3>
+                        <p class="pub-journal">ICCE 2024 - Manila, Philippines</p>
+                        <p class="pub-authors">The 32nd International Conference on Computers in Education</p>
+                        <p class="pub-authors"><strong>Authors:</strong> Banni Satria Andoko, Vivin Ayu Lestari, <strong>Agung Nugroho Pramudhita</strong>, Amalia Nuraini, Inda Khoirun Nisak, Tsukasa Hirashima</p>
+                    </div>
+                    <div class="conference-item">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">IoT-based Crash Detection System</h3>
+                        <p class="pub-journal">iCAST 2024 - Bandung, Indonesia</p>
+                        <p class="pub-authors">International Conference on Applied Science and Technology</p>
+                        <p class="pub-authors"><strong>Authors:</strong> <strong>Agung Nugroho Pramudhita</strong>, Meyti Eka Apriyani, Irsyad Arif Mashudi, Odhitya Desta Triswidrananta</p>
+                    </div>
+                    <div class="conference-item">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">Curriculum Design for Applied Business Information System Study Program</h3>
+                        <p class="pub-journal">ICVIAS 2022 - Online</p>
+                        <p class="pub-authors">International Conference On Vocational Innovation And Applied Sciences</p>
+                        <p class="pub-authors"><strong>Authors:</strong> Meyti Eka Apriyani, <strong>Agung Nugroho Pramudhita</strong>, Indra Dharma Wijaya</p>
+                    </div>
+                    
+                    <!-- Hidden conferences that will be shown when clicking "View All" -->
+                    <div class="conference-item hidden-content">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">Learning Management System Based on Assessment for Learning to Improve Computational Thinking</h3>
+                        <p class="pub-journal">ICLI 2021 - Online</p>
+                        <p class="pub-authors">International Conference on Learning Innovation</p>
+                        <p class="pub-authors"><strong>Authors:</strong> Odhitya Desta Triswidrananta, <strong>Agung Nugroho Pramudhita</strong>, Indra Dharma Wijaya</p>
+                    </div>
+                    
+                    <div class="conference-item hidden-content">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">Life-Based E-Learning Models in Mechatronics</h3>
+                        <p class="pub-journal">ICOVET 2020 - Online</p>
+                        <p class="pub-authors">4th International Conference on Vocational Education and Training</p>
+                        <p class="pub-authors"><strong>Authors:</strong> Puteri Ardista Nursisda Mawangi, <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                    
+                    <div class="conference-item hidden-content">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">Integration of IoT in Smart Grid</h3>
+                        <p class="pub-journal">iCAST 2018 - Manado, Indonesia</p>
+                        <p class="pub-authors">International Conference on Applied Science and Technology</p>
+                        <p class="pub-authors"><strong>Authors:</strong> <strong>Agung Nugroho Pramudhita</strong>, Rosa Andrie Asmara, Indrazno Siradjuddin, Erfan Rohadi</p>
+                    </div>
+                    
+                    <div class="conference-item hidden-content">
+                        <span class="duration">Presenter</span>
+                        <h3 class="pub-title">Queue Models in Healthcare Facilities Information System</h3>
+                        <p class="pub-journal">ICCIE 2017 - Malang, Indonesia</p>
+                        <p class="pub-authors">International Conference of Communication and Informatics Engineering</p>
+                        <p class="pub-authors"><strong>Author:</strong> <strong>Agung Nugroho Pramudhita</strong></p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="expand-btn" id="view-all-confs">
+                        <i class="fas fa-list"></i> View All Conferences
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards & Recognition -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('awards')">
+                <div class="section-title">
+                    <i class="fas fa-award"></i>
+                    Awards & International Recognition
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Awards</button>
+            </div>
+            <div class="section-content" id="awards-content">
+                <div class="grid-3">
+                    <div class="award-item">
+                        <h3><i class="fas fa-trophy"></i> Best Paper Award 2024</h3>
+                        <p>International Conference on Applied Science and Technology (iCAST)</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Indonesian Polytechnics Consortiums - Bandung, Indonesia</p>
+                    </div>
+                    <div class="award-item">
+                        <h3><i class="fas fa-graduation-cap"></i> Australian Awards Scholarship 2023</h3>
+                        <p>New Technologies in TVET Short Course</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Queensland University of Technology (QUT), Australia</p>
+                    </div>
+                    <div class="award-item">
+                        <h3><i class="fas fa-medal"></i> Silver Award NIICE 2022</h3>
+                        <p>National Innovation & Invention Competition</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">"Investigating log of Viat-Map Application" - UTHM, Malaysia</p>
+                    </div>
+                    <div class="award-item">
+                        <h3><i class="fas fa-certificate"></i> ILM Leadership Certification 2022</h3>
+                        <p>International Competence Certification Leadership and Management</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Cardiff and Vale College, United Kingdom</p>
+                    </div>
+                    <div class="award-item">
+                        <h3><i class="fas fa-microphone"></i> Best Presenter 2018</h3>
+                        <p>International Conference on Applied Science and Technology (iCAST)</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Indonesian Polytechnics Consortiums - Manado, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Research Projects -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('projects')">
+                <div class="section-title">
+                    <i class="fas fa-flask"></i>
+                    Current Research Projects & Innovations
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Projects</button>
+            </div>
+            <div class="section-content" id="projects-content">
+                <div class="grid-2">
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-seedling"></i> AI powered CT gamification (2024)</h3>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 15px;"><strong>Focus:</strong> Monitoring Student Learning in CT Gamification</p>
+                        <p style="color: var(--text-light); line-height: 1.6;">Monitor Student focus and engagement while learning Computational Thinking within the Gamified Learning Platform to Improve students thinking ability.</p>
+                    </div>
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-baby"></i> Mamina Online Class Digital Platform (2024)</h3>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 15px;"><strong>Focus:</strong> Maternal and Child Healthcare Education</p>
+                        <p style="color: var(--text-light); line-height: 1.6;">Enhancing online learning experiences in specialized maternal and child health field. Providing interactive and scalable resources to improve healthcare education accessibility.</p>
+                    </div>
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-brain"></i> LMS for Computational Thinking (2022)</h3>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 15px;"><strong>Focus:</strong> Digital Literacy at Politeknik Negeri Malang</p>
+                        <p style="color: var(--text-light); line-height: 1.6;">Developed a structured Learning Management System to improve students' problem-solving skills and prepare them for technology careers through computational thinking education.</p>
+                    </div>
+                    <div class="training-item">
+                        <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-book"></i> Sinakom Educational Initiative (2022)</h3>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 15px;"><strong>Focus:</strong> Computational Thinking for Students</p>
+                        <p style="color: var(--text-light); line-height: 1.6;">Educational institution focused on improving digital skills of high school and university students. Contributing to building a tech-savvy generation through structured computational thinking programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Vision & Future PhD Work -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('vision')">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i>
+                    PhD Research Vision & Future Directions
+                </div>
+                <button class="expand-btn"><i class="fas fa-chevron-down"></i> View Vision</button>
+            </div>
+            <div class="section-content" id="vision-content">
+                <div class="research-vision">
+                    <h3><i class="fas fa-lightbulb"></i> Future Research Aspirations</h3>
+                    <p>My PhD research ambitions are centered around the use of <strong>IoT, AI, and technology-enhanced learning to address educational challenges in developing countries</strong>, with a particular focus on creating scalable, inclusive, and accessible learning platforms.</p>
+                    
+                    <h3 style="margin-top: 25px;"><i class="fas fa-bullseye"></i> Specific Research Goals</h3>
+                    <div class="grid-3" style="margin: 20px 0;">
+                        <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary);">
+                            <h4 style="color: var(--primary-dark); margin-bottom: 10px;"><i class="fas fa-globe-asia"></i> Equitable Education Access</h4>
+                            <p style="color: var(--text-light);">Develop AIoT-driven solutions that provide equitable access to quality education.</p>
+                        </div>
+                        <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary);">
+                            <h4 style="color: var(--primary-dark); margin-bottom: 10px;"><i class="fas fa-chalkboard-teacher"></i> Teacher Enhancement</h4>
+                            <p style="color: var(--text-light);">Enhance teacher competencies and student engagement through technology-enhanced learning tools.</p>
+                        </div>
+                        <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary);">
+                            <h4 style="color: var(--primary-dark); margin-bottom: 10px;"><i class="fas fa-industry"></i> Industry Alignment</h4>
+                            <p style="color: var(--text-light);">Align educational technologies with industry needs to improve graduate employability.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 25px;"><i class="fas fa-chart-line"></i> Research Capabilities Demonstrated</h3>
+                    <ul style="margin-left: 20px; margin-top: 15px; color: var(--text-light); line-height: 1.8;">
+                        <li><strong>Publication Excellence:</strong> 21+ peer-reviewed articles in respected journals and conferences</li>
+                        <li><strong>Project Leadership:</strong> Leading multi-stakeholder projects addressing educational and technological challenges</li>
+                        <li><strong>Practical Implementation:</strong> Designing and implementing IoT solutions for real-world applications</li>
+                        <li><strong>Curriculum Innovation:</strong> Contributing to curriculum design aligned with technological industry demands</li>
+                        <li><strong>Community Impact:</strong> Training 1000+ teachers through Gerakan Pandai initiative in collaboration with Bebras Indonesia and Google</li>
+                    </ul>
+                    
+                    <div style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.15), rgba(59, 130, 246, 0.15)); padding: 25px; border-radius: 15px; margin-top: 25px; border: 2px solid rgba(59, 130, 246, 0.3);">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 15px;"><i class="fas fa-bullseye"></i> Ultimate Research Impact</h3>
+                        <p style="font-size: 1.1rem; color: var(--text); line-height: 1.8; font-weight: 500;">
+                            The ultimate goal is to contribute to sustainable development through education and innovation, creating scalable IoT and educational technology solutions that can be replicated across developing countries to bridge the digital divide and enhance educational opportunities for underserved communities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle All Button -->
+    <button class="toggle-all" onclick="toggleAll()">
+        <i class="fas fa-expand-arrows-alt"></i>
+        <span id="toggle-text">Expand All</span>
+    </button>
+
+    <script>
+        let expandedSections = new Set();
+        let showingAllPubs = false;
+        let showingAllConfs = false;
+        
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId + '-content');
+            const btn = content.previousElementSibling.querySelector('.expand-btn');
+            const icon = btn.querySelector('i');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                btn.innerHTML = '<i class="fas fa-chevron-down"></i> View ' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+                expandedSections.delete(sectionId);
+            } else {
+                content.classList.add('active');
+                btn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide ' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+                expandedSections.add(sectionId);
+            }
+            
+            updateToggleAllButton();
+        }
+        
+        function toggleAll() {
+            const sections = ['education', 'training', 'employment', 'publications', 'conferences', 'awards', 'projects', 'vision'];
+            const toggleText = document.getElementById('toggle-text');
+            const toggleIcon = document.querySelector('.toggle-all i');
+            const shouldExpand = expandedSections.size < sections.length;
+            
+            sections.forEach(sectionId => {
+                const content = document.getElementById(sectionId + '-content');
+                const btn = content.previousElementSibling.querySelector('.expand-btn');
+                
+                if (shouldExpand) {
+                    content.classList.add('active');
+                    btn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide ' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+                    expandedSections.add(sectionId);
+                } else {
+                    content.classList.remove('active');
+                    btn.innerHTML = '<i class="fas fa-chevron-down"></i> View ' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+                    expandedSections.delete(sectionId);
+                }
+            });
+            
+            if (shouldExpand) {
+                toggleText.textContent = 'Collapse All';
+                toggleIcon.className = 'fas fa-compress-arrows-alt';
+            } else {
+                toggleText.textContent = 'Expand All';
+                toggleIcon.className = 'fas fa-expand-arrows-alt';
+            }
+        }
+        
+        function updateToggleAllButton() {
+            const toggleText = document.getElementById('toggle-text');
+            const toggleIcon = document.querySelector('.toggle-all i');
+            const sections = ['education', 'training', 'employment', 'publications', 'conferences', 'awards', 'projects', 'vision'];
+            
+            if (expandedSections.size === 0) {
+                toggleText.textContent = 'Expand All';
+                toggleIcon.className = 'fas fa-expand-arrows-alt';
+            } else if (expandedSections.size === sections.length) {
+                toggleText.textContent = 'Collapse All';
+                toggleIcon.className = 'fas fa-compress-arrows-alt';
+            } else {
+                toggleText.textContent = 'Expand All';
+                toggleIcon.className = 'fas fa-expand-arrows-alt';
+            }
+        }
+        
+        function toggleAllPublications() {
+            const pubSection = document.getElementById('publications-content');
+            const viewAllBtn = document.getElementById('view-all-pubs');
+            const hiddenPubs = pubSection.querySelectorAll('.hidden-content');
+            
+            if (showingAllPubs) {
+                // Hide additional publications
+                hiddenPubs.forEach(pub => {
+                    pub.style.display = 'none';
+                });
+                viewAllBtn.innerHTML = '<i class="fas fa-list"></i> View All Publications';
+                showingAllPubs = false;
+            } else {
+                // Show all publications
+                hiddenPubs.forEach(pub => {
+                    pub.style.display = 'block';
+                });
+                viewAllBtn.innerHTML = '<i class="fas fa-minus-circle"></i> Show Less Publications';
+                showingAllPubs = true;
+                
+                // Expand the publications section if it's not already expanded
+                if (!pubSection.classList.contains('active')) {
+                    toggleSection('publications');
+                }
+            }
+        }
+        
+        function toggleAllConferences() {
+            const confSection = document.getElementById('conferences-content');
+            const viewAllBtn = document.getElementById('view-all-confs');
+            const hiddenConfs = confSection.querySelectorAll('.hidden-content');
+            
+            if (showingAllConfs) {
+                // Hide additional conferences
+                hiddenConfs.forEach(conf => {
+                    conf.style.display = 'none';
+                });
+                viewAllBtn.innerHTML = '<i class="fas fa-list"></i> View All Conferences';
+                showingAllConfs = false;
+            } else {
+                // Show all conferences
+                hiddenConfs.forEach(conf => {
+                    conf.style.display = 'block';
+                });
+                viewAllBtn.innerHTML = '<i class="fas fa-minus-circle"></i> Show Less Conferences';
+                showingAllConfs = true;
+                
+                // Expand the conferences section if it's not already expanded
+                if (!confSection.classList.contains('active')) {
+                    toggleSection('conferences');
+                }
+            }
+        }
+        
+        // Initialize with stats section expanded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to the "View All" buttons
+            document.getElementById('view-all-pubs').addEventListener('click', toggleAllPublications);
+            document.getElementById('view-all-confs').addEventListener('click', toggleAllConferences);
+            
+            // No section expanded by default for cleaner look
+            updateToggleAllButton();
+        });
+    </script>
+</body>
+</html>
