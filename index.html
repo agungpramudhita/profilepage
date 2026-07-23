@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agung Nugroho Pramudhita — Academic Profile</title>
 <meta name="description" content="Lecturer at Politeknik Negeri Malang. Research in AI in Education, Learning Analytics, and the Internet of Things.">
+<link rel="icon" href="profile.jpg">
+<link rel="apple-touch-icon" href="profile.jpg">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Agung Nugroho Pramudhita — Academic Profile">
+<meta property="og:description" content="Lecturer at Politeknik Negeri Malang. AI in Education, Learning Analytics, and the Internet of Things.">
+<meta property="og:url" content="https://agungpramudhita.github.io/profilepage/">
+<meta property="og:image" content="https://agungpramudhita.github.io/profilepage/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
@@ -57,6 +65,11 @@ a{color:inherit}
 
 /* ---------- hero ---------- */
 .hero{padding:72px 0 8px}
+.hero__top{display:grid;grid-template-columns:1.45fr .8fr;gap:54px;align-items:end}
+.hero__photo img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;
+  display:block;border-radius:3px;background:var(--card);border:1px solid var(--line);
+}
 .hero__name{
   font-family:var(--display);font-weight:800;
   font-size:clamp(46px,9.2vw,104px);line-height:.92;letter-spacing:-.035em;
@@ -214,6 +227,9 @@ a{color:inherit}
 @media (max-width:820px){
   body{font-size:16px}
   .stats{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:44px 0 8px}
+  .hero__top{grid-template-columns:1fr;gap:28px}
+  .hero__photo img{aspect-ratio:3/2;object-position:center 20%}
   .focus,.aw,.edu,.imp{grid-template-columns:1fr}
   .imp{gap:24px}
   .bars{gap:4px}
@@ -252,6 +268,8 @@ a{color:inherit}
 </nav>
 
 <header class="hero wrap">
+ <div class="hero__top">
+  <div class="hero__text">
   <p class="eyebrow">Lecturer · Politeknik Negeri Malang · Seeking a PhD position</p>
   <h1 class="hero__name">
     <span>Agung Nugroho</span>
@@ -265,6 +283,11 @@ a{color:inherit}
     <a class="chip" href="https://www.linkedin.com/in/agungpramudhita/" target="_blank" rel="noopener">LinkedIn</a>
     <a class="chip" href="https://agungpramudhita.github.io/profilepage/" target="_blank" rel="noopener">Portfolio</a>
   </div>
+  </div>
+  <figure class="hero__photo">
+    <img src="profile.jpg" alt="Agung Nugroho Pramudhita" width="900" height="1125">
+  </figure>
+ </div>
 
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__l">Years in higher education</div></div>
