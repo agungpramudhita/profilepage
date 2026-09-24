@@ -72,7 +72,7 @@ a{color:inherit}
 }
 .hero__name{
   font-family:var(--display);font-weight:800;
-  font-size:clamp(46px,9.2vw,104px);line-height:.92;letter-spacing:-.035em;
+  font-size:clamp(38px,6.2vw,72px);line-height:.95;letter-spacing:-.035em;
   margin:18px 0 0;
 }
 .hero__name span{display:block}
@@ -184,6 +184,18 @@ a{color:inherit}
   color:var(--blue);margin-top:8px;display:inline-block}
 .pub__tag::before{content:"◆ ";color:var(--yellow);font-size:8px}
 .pub[hidden]{display:none}
+
+/* research projects */
+.prjs{list-style:none}
+.prj{display:grid;grid-template-columns:74px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.prj__y{font-family:var(--mono);font-size:12.5px;color:var(--ink2);padding-top:3px}
+.prj__t{font-size:16px;line-height:1.45;font-weight:600}
+.prj__r{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);margin-top:7px;display:inline-block}
+.prj__r::before{content:"◆ ";color:var(--line);font-size:8px}
+.prj__r--lead{color:var(--orange)}
+.prj__r--lead::before{color:var(--yellow)}
+.prj[hidden]{display:none}
 .empty{font-family:var(--mono);font-size:13px;color:var(--ink2);padding:26px 0}
 
 /* awards */
@@ -236,7 +248,7 @@ a{color:inherit}
   .bar{height:110px}
   .bar__n{font-size:10px}
   .bar__y{font-size:9.5px;letter-spacing:0}
-  .pub{grid-template-columns:1fr;gap:4px}
+  .pub,.prj{grid-template-columns:1fr;gap:4px}
   .pub__y{padding-top:0}
   .nav__links{gap:14px}
   .nav__links a{font-size:10.5px}
@@ -260,7 +272,9 @@ a{color:inherit}
       <a href="#research">Research</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
+      <a href="#certifications">Certifications</a>
       <a href="#impact">Impact</a>
       <a href="#contact">Contact</a>
     </div>
@@ -696,12 +710,177 @@ a{color:inherit}
   <p class="empty" id="empty" hidden>Nothing matches that combination. Clear a filter to see more.</p>
 </section>
 
+<section class="sec wrap" id="projects">
+  <div class="sec__head">
+    <h2 class="sec__title">Research projects</h2>
+    <span class="sec__meta">20 funded projects · 5 as lead</span>
+  </div>
+  <div class="filters" id="pfilters">
+    <button class="f" data-tag="all" aria-pressed="true">All</button>
+    <button class="f" data-tag="lead" aria-pressed="false">Project lead</button>
+    <button class="f" data-tag="learning" aria-pressed="false">Learning &amp; AI in education</button>
+    <button class="f" data-tag="iot" aria-pressed="false">IoT &amp; smart systems</button>
+    <button class="f" data-tag="data" aria-pressed="false">Machine learning &amp; decision systems</button>
+    <button class="f" data-tag="systems" aria-pressed="false">Information systems &amp; security</button>
+    <button class="f" data-tag="vocational" aria-pressed="false">Vocational education</button>
+  </div>
+  <p class="count" id="pcount"></p>
+
+  <ul class="prjs">
+    <li class="prj" data-tag="iot" data-lead="0">
+      <div class="prj__y">2026</div>
+      <div>
+        <div class="prj__t">Leakage-current monitoring system and condition assessment method for medium-voltage outgoing cables of power transformers</div>
+        <span class="prj__r">IoT monitoring system developer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="1">
+      <div class="prj__y">2026</div>
+      <div>
+        <div class="prj__t">Mobile-based smart driver drowsiness detection for industrial fleet monitoring</div>
+        <span class="prj__r prj__r--lead">Project lead</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="iot" data-lead="0">
+      <div class="prj__y">2026</div>
+      <div>
+        <div class="prj__t">Image-processing-based human-following robot for carrying laboratory equipment</div>
+        <span class="prj__r">Computer vision engineer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="0">
+      <div class="prj__y">2026</div>
+      <div>
+        <div class="prj__t">Electricity demand assessment based on per-floor kWh and building occupancy</div>
+        <span class="prj__r">Energy data analyst</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="learning" data-lead="0">
+      <div class="prj__y">2025</div>
+      <div>
+        <div class="prj__t">Programming logic educational game to improve computational thinking of Politeknik Negeri Malang students</div>
+        <span class="prj__r">Educational game designer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="0">
+      <div class="prj__y">2025</div>
+      <div>
+        <div class="prj__t">AI-based on-premise satellite network coverage mapping system for geospatial data management</div>
+        <span class="prj__r">AI &amp; geospatial system developer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="0">
+      <div class="prj__y">2025</div>
+      <div>
+        <div class="prj__t">Exploring LSTM architectures and data augmentation for time-series weather prediction</div>
+        <span class="prj__r">Machine learning engineer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="1">
+      <div class="prj__y">2025</div>
+      <div>
+        <div class="prj__t">Automated safety-helmet compliance monitoring in industrial environments</div>
+        <span class="prj__r prj__r--lead">Project lead</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="systems" data-lead="0">
+      <div class="prj__y">2025</div>
+      <div>
+        <div class="prj__t">Blockchain integration and QR code validation with zero-knowledge proofs for payment document authorisation</div>
+        <span class="prj__r">System architect</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="0">
+      <div class="prj__y">2025</div>
+      <div>
+        <div class="prj__t">Personalised diet prediction and recommendation system using machine learning integrated with LLMs</div>
+        <span class="prj__r">Machine learning engineer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="iot" data-lead="1">
+      <div class="prj__y">2024</div>
+      <div>
+        <div class="prj__t">Design and evaluation of an IoT-based car security system for crash detection</div>
+        <span class="prj__r prj__r--lead">Project lead</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="iot" data-lead="0">
+      <div class="prj__y">2024</div>
+      <div>
+        <div class="prj__t">IoT-enabled greenhouse innovation for melon cultivation</div>
+        <span class="prj__r">IoT engineer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="systems" data-lead="0">
+      <div class="prj__y">2024</div>
+      <div>
+        <div class="prj__t">Risk management evaluation of the Malang Regency Communication and Information Office using COBIT 5</div>
+        <span class="prj__r">IT governance analyst</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="learning" data-lead="0">
+      <div class="prj__y">2024</div>
+      <div>
+        <div class="prj__t">Appreciative-inquiry-based gamified e-learning to improve critical thinking</div>
+        <span class="prj__r">Learning system developer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="iot" data-lead="0">
+      <div class="prj__y">2023</div>
+      <div>
+        <div class="prj__t">UAV-based city monitoring system</div>
+        <span class="prj__r">Monitoring system engineer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="learning" data-lead="1">
+      <div class="prj__y">2023</div>
+      <div>
+        <div class="prj__t">Augmented reality educational game based on Realistic Mathematics Education to improve students’ computational thinking</div>
+        <span class="prj__r prj__r--lead">Project lead</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="data" data-lead="0">
+      <div class="prj__y">2023</div>
+      <div>
+        <div class="prj__t">Sexual harassment analysis on Telegram using Naïve Bayes and digital forensic acquisition</div>
+        <span class="prj__r">Data mining analyst</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="learning" data-lead="1">
+      <div class="prj__y">2022</div>
+      <div>
+        <div class="prj__t">Gamification of computational thinking learning</div>
+        <span class="prj__r prj__r--lead">Project lead</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="vocational" data-lead="0">
+      <div class="prj__y">2022</div>
+      <div>
+        <div class="prj__t">Integrated business and IT curriculum for the industry-based applied bachelor’s programme in Business Information Systems</div>
+        <span class="prj__r">Curriculum designer</span>
+      </div>
+    </li>
+    <li class="prj" data-tag="learning" data-lead="0">
+      <div class="prj__y">2021</div>
+      <div>
+        <div class="prj__t">Serious and applied science games on the Scratch platform</div>
+        <span class="prj__r">Educational game developer</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
 <section class="sec wrap" id="awards">
   <div class="sec__head">
     <h2 class="sec__title">Awards &amp; fellowships</h2>
-    <span class="sec__meta">2018 — 2025</span>
+    <span class="sec__meta">2018 — 2026</span>
   </div>
   <div class="aw">
+    <div class="aw__i">
+      <div class="aw__t">IEEE HTB Tech4Good funding</div>
+      <div class="aw__m">2026 · AWARDEE</div>
+      <div class="aw__d">Smart WASH: IoT-driven water and sanitation solutions for Daarulukhuwwah Boarding School, Indonesia.</div>
+    </div>
     <div class="aw__i">
       <div class="aw__t">IEEE HTB Tech4Good funding</div>
       <div class="aw__m">2025 · AWARDEE</div>
@@ -723,14 +902,48 @@ a{color:inherit}
       <div class="aw__d">National Innovation &amp; Invention Competition, for <em>Investigating log of Viat-Map application to understand student thinking</em>.</div>
     </div>
     <div class="aw__i">
-      <div class="aw__t">International Leadership and Management Certification</div>
-      <div class="aw__m">2022 · CARDIFF AND VALE COLLEGE, UK</div>
-      <div class="aw__d">ILM certification programme.</div>
-    </div>
-    <div class="aw__i">
       <div class="aw__t">Best Presenter</div>
       <div class="aw__m">2018 · iCAST, MANADO</div>
       <div class="aw__d">International Conference on Applied Science and Technology.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="certifications">
+  <div class="sec__head">
+    <h2 class="sec__title">Certifications</h2>
+    <span class="sec__meta">6 credentials</span>
+  </div>
+  <div class="aw">
+    <div class="aw__i">
+      <div class="aw__t">Small and Medium Industries Mentor &amp; Consultant</div>
+      <div class="aw__m">2026 · INDONESIAN PROFESSIONAL CERTIFICATION AUTHORITY · PELAKU USAHA IKM PRESTASI CERTIFICATION BODY</div>
+      <div class="aw__d">Skilled in assessing small and medium industries through surveys and data analysis, then designing improvement programmes and mentoring them on bookkeeping, HR, production, marketing, and raw-material management.</div>
+    </div>
+    <div class="aw__i">
+      <div class="aw__t">ILM Level 3 Award in Leadership and Management</div>
+      <div class="aw__m">2022 · CITY &amp; GUILDS / ILM · CARDIFF AND VALE COLLEGE, UK</div>
+      <div class="aw__d">Equipped to lead teams, manage people and change, and make and communicate decisions as a first-line manager.</div>
+    </div>
+    <div class="aw__i">
+      <div class="aw__t">Inixindo Certified Business Analyst</div>
+      <div class="aw__m">2022 · INIXINDO</div>
+      <div class="aw__d">Proficient in eliciting and analysing stakeholder requirements, modelling business processes, and translating them into clear specifications for IT solutions.</div>
+    </div>
+    <div class="aw__i">
+      <div class="aw__t">Microsoft Certified Educator — Technology Literacy for Educators</div>
+      <div class="aw__m">2021 · MICROSOFT · CERTIPORT</div>
+      <div class="aw__d">Adept at designing lessons that use ICT to foster student collaboration, communication, knowledge construction, self-regulation, and real-world problem solving.</div>
+    </div>
+    <div class="aw__i">
+      <div class="aw__t">Programming</div>
+      <div class="aw__m">2019 · INDONESIAN PROFESSIONAL CERTIFICATION AUTHORITY · LPK INIXINDO CERTIFICATION BODY</div>
+      <div class="aw__d">Competent in turning program specifications into working software with structured and object-oriented programming, building user interfaces, debugging, packaging releases, and documenting code.</div>
+    </div>
+    <div class="aw__i">
+      <div class="aw__t">Mobile Application Development</div>
+      <div class="aw__m">2018 · INDONESIAN PROFESSIONAL CERTIFICATION AUTHORITY · LPK INIXINDO CERTIFICATION BODY</div>
+      <div class="aw__d">Experienced in designing, building, and testing mobile applications from requirements through to a working app.</div>
     </div>
   </div>
 </section>
@@ -792,7 +1005,7 @@ a{color:inherit}
 <script>
 (function(){
   var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
-  var fBtns = Array.prototype.slice.call(document.querySelectorAll('.f'));
+  var fBtns = Array.prototype.slice.call(document.querySelectorAll('#filters .f'));
   var yBtns = Array.prototype.slice.call(document.querySelectorAll('.bar'));
   var countEl = document.getElementById('count');
   var emptyEl = document.getElementById('empty');
@@ -834,6 +1047,33 @@ a{color:inherit}
   });
 
   apply();
+
+  // research project filters
+  var prjs = Array.prototype.slice.call(document.querySelectorAll('.prj'));
+  var pBtns = Array.prototype.slice.call(document.querySelectorAll('#pfilters .f'));
+  var pCount = document.getElementById('pcount');
+  var ptag = 'all';
+  function applyP(){
+    var n = 0;
+    prjs.forEach(function(p){
+      var ok = ptag === 'all' || (ptag === 'lead' ? p.dataset.lead === '1' : p.dataset.tag === ptag);
+      p.hidden = !ok;
+      if (ok) n++;
+    });
+    pBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.tag === ptag)); });
+    pCount.textContent = 'Showing ' + n + ' of ' + prjs.length +
+      (ptag !== 'all' ? ' — ' + pBtns.filter(function(b){return b.dataset.tag===ptag;})[0].textContent.trim() : '');
+    if (ptag !== 'all'){
+      var r = document.createElement('button');
+      r.textContent = 'Show all';
+      r.addEventListener('click', function(){ ptag = 'all'; applyP(); });
+      pCount.appendChild(r);
+    }
+  }
+  pBtns.forEach(function(b){
+    b.addEventListener('click', function(){ ptag = b.dataset.tag; applyP(); });
+  });
+  applyP();
 
   // gentle reveal on scroll
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
