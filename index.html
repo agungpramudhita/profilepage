@@ -184,6 +184,13 @@ a{color:inherit}
   color:var(--blue);margin-top:8px;display:inline-block}
 .pub__tag::before{content:"◆ ";color:var(--yellow);font-size:8px}
 .pub[hidden]{display:none}
+.more{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  background:var(--blue);color:var(--card);border:1px solid var(--blue);border-radius:999px;
+  padding:14px 20px;cursor:pointer;transition:background .18s,color .18s,transform .18s}
+.more:hover{background:var(--card);color:var(--blue);transform:translateY(-1px)}
+.more[hidden]{display:none}
+.more__n{background:var(--yellow);color:var(--ink);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.04em}
 
 /* research projects */
 .prjs{list-style:none}
@@ -284,13 +291,13 @@ a{color:inherit}
 <header class="hero wrap">
  <div class="hero__top">
   <div class="hero__text">
-  <p class="eyebrow">Lecturer · Politeknik Negeri Malang · Seeking a PhD position</p>
+  <p class="eyebrow">Lecturer · Researcher · Analyst</p>
   <h1 class="hero__name">
     <span>Agung Nugroho</span>
     <span class="u">Pramudhita</span>
   </h1>
-  <p class="hero__role">I build and evaluate intelligent learning systems — where AI, sensors, and classrooms meet.</p>
-  <p class="hero__lede">Ten years in higher education, working across Artificial Intelligence in Education, the Internet of Things, and Technology-Enhanced Learning. My research turns classroom problems into systems that can be measured: learning platforms that log how students actually think, and connected devices that serve schools, clinics, and farms across Indonesia.</p>
+  <p class="hero__role">I build intelligent systems that turn real-world problems into solutions — keeping people safe, resources efficient, and students thinking.</p>
+  <p class="hero__lede">Ten years in higher education, leading and building funded research across the Internet of Things, computer vision, and machine learning. My projects turn real problems into working systems: driver-drowsiness and safety-helmet detection for industry, IoT crash detection and smart greenhouses, AI-driven forecasting and geospatial mapping, and gamified, augmented-reality learning that builds students’ computational thinking.</p>
   <div class="hero__links">
     <a class="chip" href="mailto:agung.pramudhita@polinema.ac.id">agung.pramudhita@polinema.ac.id</a>
     <a class="chip" href="https://scholar.google.com/citations?hl=en&amp;user=hpVrzLoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
@@ -707,6 +714,7 @@ a{color:inherit}
     </li>
 
   </ul>
+  <button class="more" id="pubmore" type="button" hidden></button>
   <p class="empty" id="empty" hidden>Nothing matches that combination. Clear a filter to see more.</p>
 </section>
 
@@ -868,6 +876,7 @@ a{color:inherit}
       </div>
     </li>
   </ul>
+  <button class="more" id="prjmore" type="button" hidden></button>
 </section>
 
 <section class="sec wrap" id="awards">
@@ -1009,31 +1018,43 @@ a{color:inherit}
   var yBtns = Array.prototype.slice.call(document.querySelectorAll('.bar'));
   var countEl = document.getElementById('count');
   var emptyEl = document.getElementById('empty');
-  var tag = 'all', year = null;
+  var tag = 'all', year = null, pubAll = false, TOP = 5;
+  var pubMore = document.getElementById('pubmore');
 
   function apply(){
     var n = 0;
     pubs.forEach(function(p){
       var ok = (tag === 'all' || p.dataset.tag === tag) &&
                (year === null || p.dataset.year === year);
-      p.hidden = !ok;
       if (ok) n++;
+      p.hidden = !ok || (!pubAll && n > TOP);
     });
+    setMore(pubMore, n, pubAll, 'publications');
     fBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.tag === tag)); });
     yBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.year === year)); });
 
     var parts = [];
     if (tag !== 'all') parts.push(fBtns.filter(function(b){return b.dataset.tag===tag;})[0].textContent.trim());
     if (year) parts.push(year);
-    countEl.innerHTML = 'Showing ' + n + ' of 31' + (parts.length ? ' — ' + parts.join(' · ') : '');
+    countEl.innerHTML = 'Showing ' + (pubAll ? n : Math.min(n, TOP)) + ' of ' + n + (parts.length ? ' — ' + parts.join(' · ') : '');
     if (parts.length){
       var r = document.createElement('button');
       r.textContent = 'Show all';
-      r.addEventListener('click', function(){ tag='all'; year=null; apply(); });
+      r.addEventListener('click', function(){ tag='all'; year=null; pubAll=true; apply(); });
       countEl.appendChild(r);
     }
     emptyEl.hidden = n !== 0;
   }
+
+  function setMore(btn, n, all, noun){
+    btn.hidden = n <= TOP;
+    btn.innerHTML = all ? 'Show fewer ↑'
+      : 'Show all ' + noun + ' <span class="more__n">+' + (n - TOP) + ' more</span> ↓';
+  }
+  pubMore.addEventListener('click', function(){
+    pubAll = !pubAll; apply();
+    if (!pubAll) document.getElementById('publications').scrollIntoView({behavior:'smooth', block:'start'});
+  });
 
   fBtns.forEach(function(b){
     b.addEventListener('click', function(){ tag = b.dataset.tag; apply(); });
@@ -1052,26 +1073,32 @@ a{color:inherit}
   var prjs = Array.prototype.slice.call(document.querySelectorAll('.prj'));
   var pBtns = Array.prototype.slice.call(document.querySelectorAll('#pfilters .f'));
   var pCount = document.getElementById('pcount');
-  var ptag = 'all';
+  var ptag = 'all', prjAll = false;
+  var prjMore = document.getElementById('prjmore');
   function applyP(){
     var n = 0;
     prjs.forEach(function(p){
       var ok = ptag === 'all' || (ptag === 'lead' ? p.dataset.lead === '1' : p.dataset.tag === ptag);
-      p.hidden = !ok;
       if (ok) n++;
+      p.hidden = !ok || (!prjAll && n > TOP);
     });
+    setMore(prjMore, n, prjAll, 'projects');
     pBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.tag === ptag)); });
-    pCount.textContent = 'Showing ' + n + ' of ' + prjs.length +
+    pCount.textContent = 'Showing ' + (prjAll ? n : Math.min(n, TOP)) + ' of ' + n +
       (ptag !== 'all' ? ' — ' + pBtns.filter(function(b){return b.dataset.tag===ptag;})[0].textContent.trim() : '');
     if (ptag !== 'all'){
       var r = document.createElement('button');
       r.textContent = 'Show all';
-      r.addEventListener('click', function(){ ptag = 'all'; applyP(); });
+      r.addEventListener('click', function(){ ptag = 'all'; prjAll = true; applyP(); });
       pCount.appendChild(r);
     }
   }
   pBtns.forEach(function(b){
     b.addEventListener('click', function(){ ptag = b.dataset.tag; applyP(); });
+  });
+  prjMore.addEventListener('click', function(){
+    prjAll = !prjAll; applyP();
+    if (!prjAll) document.getElementById('projects').scrollIntoView({behavior:'smooth', block:'start'});
   });
   applyP();
 
