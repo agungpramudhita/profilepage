@@ -107,7 +107,7 @@ a{color:inherit}
 .cadence{margin-top:64px;border-top:1px solid var(--line);padding-top:22px}
 .cadence__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
 .cadence__hint{font-family:var(--mono);font-size:11px;color:var(--ink2);letter-spacing:.04em}
-.bars{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:22px;align-items:end}
+.bars{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:22px;align-items:end}
 .bar{
   background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;
   display:flex;flex-direction:column;justify-content:flex-end;height:150px;
@@ -291,14 +291,14 @@ a{color:inherit}
 
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__l">Years in higher education</div></div>
-    <div class="stat"><div class="stat__n">29</div><div class="stat__l">Publications</div></div>
+    <div class="stat"><div class="stat__n">31</div><div class="stat__l">Publications</div></div>
     <div class="stat"><div class="stat__n">70+</div><div class="stat__l">Theses supervised since 2016</div></div>
     <div class="stat"><div class="stat__n">6</div><div class="stat__l">Awards &amp; fellowships</div></div>
   </div>
 
   <section class="cadence" aria-label="Publications per year">
     <div class="cadence__head">
-      <p class="eyebrow">Publication cadence · 2017–2025</p>
+      <p class="eyebrow">Publication cadence · 2017–2026</p>
       <p class="cadence__hint">Tap a year to filter the publication list ↓</p>
     </div>
     <div class="bars" id="bars">
@@ -311,6 +311,7 @@ a{color:inherit}
       <button class="bar" data-year="2023" aria-pressed="false"><span class="bar__n">5</span><span class="bar__fill" style="height:100%;animation-delay:.35s"></span><span class="bar__y">’23</span></button>
       <button class="bar" data-year="2024" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.4s"></span><span class="bar__y">’24</span></button>
       <button class="bar" data-year="2025" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.45s"></span><span class="bar__y">’25</span></button>
+      <button class="bar" data-year="2026" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:40%;animation-delay:.5s"></span><span class="bar__y">’26</span></button>
     </div>
   </section>
 </header>
@@ -399,7 +400,7 @@ a{color:inherit}
 <section class="sec wrap" id="publications">
   <div class="sec__head">
     <h2 class="sec__title">Publications</h2>
-    <span class="sec__meta">29 items</span>
+    <span class="sec__meta">31 items</span>
   </div>
   <div class="filters" id="filters">
     <button class="f" data-tag="all" aria-pressed="true">All</button>
@@ -411,6 +412,24 @@ a{color:inherit}
   <p class="count" id="count"></p>
 
   <ul class="pubs" id="pubs">
+
+    <li class="pub" data-year="2026" data-tag="vocational">
+      <div class="pub__y">2026</div>
+      <div>
+        <div class="pub__t"><a href="https://scholar.google.com/scholar?q=%22Pemberdayaan+Melalui+Pelatihan+dan+Penerapan+Sistem+Informasi+Keuangan+Digital+untuk+Penguatan+Branding+UMKM+Pandawa+Bunulrejo%22" target="_blank" rel="noopener">Empowerment through training and implementation of a digital financial information system to strengthen the branding of UMKM Pandawa Bunulrejo, Malang</a></div>
+        <div class="pub__v">DEDIKASI SAINTEK: Jurnal Pengabdian Masyarakat, 5(2), 152–166</div>
+        <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
+
+    <li class="pub" data-year="2026" data-tag="vocational">
+      <div class="pub__y">2026</div>
+      <div>
+        <div class="pub__t"><a href="https://scholar.google.com/scholar?q=%22Peningkatan+Brand+Awareness+Melalui+Redesain+Kemasan%22" target="_blank" rel="noopener">Increasing brand awareness through packaging redesign: mentoring UMKM Pandawa Food &amp; Cookies Bunulrejo</a></div>
+        <div class="pub__v">Jurnal Pengabdian kepada Masyarakat, 13(1), 25–30</div>
+        <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
 
     <li class="pub" data-year="2025" data-tag="learning">
       <div class="pub__y">2025</div>
@@ -793,7 +812,7 @@ a{color:inherit}
     var parts = [];
     if (tag !== 'all') parts.push(fBtns.filter(function(b){return b.dataset.tag===tag;})[0].textContent.trim());
     if (year) parts.push(year);
-    countEl.innerHTML = 'Showing ' + n + ' of 29' + (parts.length ? ' — ' + parts.join(' · ') : '');
+    countEl.innerHTML = 'Showing ' + n + ' of 31' + (parts.length ? ' — ' + parts.join(' · ') : '');
     if (parts.length){
       var r = document.createElement('button');
       r.textContent = 'Show all';
