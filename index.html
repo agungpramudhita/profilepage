@@ -103,28 +103,6 @@ a{color:inherit}
 .stat__l{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink2);margin-top:8px}
 
-/* ---------- cadence (signature) ---------- */
-.cadence{margin-top:64px;border-top:1px solid var(--line);padding-top:22px}
-.cadence__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.cadence__hint{font-family:var(--mono);font-size:11px;color:var(--ink2);letter-spacing:.04em}
-.bars{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:22px;align-items:end}
-.bar{
-  background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;
-  display:flex;flex-direction:column;justify-content:flex-end;height:150px;
-}
-.bar__n{font-family:var(--mono);font-size:11px;color:var(--ink2);text-align:center;margin-bottom:6px}
-.bar__fill{
-  background:var(--blue);border-radius:2px 2px 0 0;width:100%;
-  transform-origin:bottom;transition:background .2s;
-  animation:grow .7s cubic-bezier(.2,.8,.2,1) both;
-}
-.bar__y{font-family:var(--mono);font-size:11px;text-align:center;margin-top:8px;
-  color:var(--ink2);letter-spacing:.02em;border-top:1px solid var(--line);padding-top:7px}
-.bar:hover .bar__fill{background:var(--blue2)}
-.bar[aria-pressed="true"] .bar__fill{background:var(--orange-b)}
-.bar[aria-pressed="true"] .bar__y{color:var(--ink);font-weight:500}
-@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-
 /* ---------- sections ---------- */
 .sec{padding:84px 0 0}
 .sec__head{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);
@@ -134,27 +112,14 @@ a{color:inherit}
 .sec__meta{font-family:var(--mono);font-size:11px;color:var(--ink2);letter-spacing:.1em;
   text-transform:uppercase;margin-left:auto}
 
-/* focus */
-.focus{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
-  border:1px solid var(--line)}
-.focus__item{background:var(--card);padding:26px 24px}
-.focus__k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--orange)}
-.focus__t{font-family:var(--display);font-weight:600;font-size:21px;margin:10px 0 8px;letter-spacing:-.01em}
-.focus__d{font-size:15.5px;color:var(--ink2);line-height:1.6}
 
 /* timeline */
-.tl{border-left:2px solid var(--line);margin-left:6px}
-.tl__item{padding:0 0 38px 26px;position:relative}
-.tl__item::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;
-  border-radius:50%;background:var(--paper);border:2px solid var(--blue)}
-.tl__item--now::before{background:var(--yellow);border-color:var(--orange-b)}
-.tl__when{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--orange)}
-.tl__role{font-family:var(--display);font-weight:600;font-size:21px;margin-top:6px;letter-spacing:-.01em}
-.tl__org{font-size:15.5px;color:var(--blue);margin-top:2px}
-.tl__list{margin-top:12px;padding-left:0;list-style:none}
-.tl__list li{position:relative;padding-left:18px;color:var(--ink2);font-size:15.5px;margin-bottom:5px}
-.tl__list li::before{content:"—";position:absolute;left:0;color:var(--line);color:var(--ink2);opacity:.5}
+.xp{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.xp__when{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink2);text-transform:uppercase;padding-top:4px}
+.xp--now .xp__when{color:var(--orange)}
+.xp__role{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.01em;line-height:1.35}
+.xp__org{font-weight:400;color:var(--blue);font-size:15.5px;letter-spacing:0}
+.xp__d{color:var(--ink2);font-size:15px;margin-top:4px}
 
 /* publications */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
@@ -192,6 +157,33 @@ a{color:inherit}
 .more[hidden]{display:none}
 .more__n{background:var(--yellow);color:var(--ink);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.04em}
 
+/* skill radar */
+.rd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.rd__fig{position:relative;max-width:520px;width:100%;margin:0 auto}
+.rd__svg{width:100%;height:auto;display:block;overflow:visible}
+.rd__ring{fill:none;stroke:var(--line);stroke-width:1}
+.rd__axis{stroke:var(--line);stroke-width:1}
+.rd__area{fill:rgba(22,76,147,.16);stroke:var(--blue);stroke-width:2;stroke-linejoin:round}
+.rd__lbl{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink2)}
+.rd__dot{fill:var(--yellow);stroke:var(--blue);stroke-width:2;transition:r .15s}
+.rd__hit{fill:transparent;cursor:pointer}
+.rd__pt.is-on .rd__dot{r:7}
+.rd__tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--card);
+  font-family:var(--mono);font-size:11px;line-height:1.5;padding:8px 10px;border-radius:4px;max-width:220px;
+  transform:translate(-50%,calc(-100% - 12px));white-space:normal}
+.rd__tip b{font-weight:500;color:var(--yellow)}
+.rd__list{list-style:none;display:grid;gap:14px}
+.rd__row{padding:4px 0;border-radius:4px;transition:background .15s}
+.rd__row.is-on{background:var(--card);box-shadow:0 0 0 8px var(--card)}
+.rd__h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.rd__n{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em}
+.rd__v{font-family:var(--mono);font-size:12px;color:var(--blue)}
+.rd__bar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
+.rd__bar span{display:block;height:100%;background:var(--blue);border-radius:2px}
+.rd__e{font-size:14px;color:var(--ink2);margin-top:6px}
+.rd__s{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--orange);margin-top:3px}
+.rd__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:22px;letter-spacing:.03em}
+
 /* research projects */
 .prjs{list-style:none}
 .prj{display:grid;grid-template-columns:74px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
@@ -214,7 +206,7 @@ a{color:inherit}
 .aw__d{font-size:14.5px;color:var(--ink2);margin-top:6px}
 
 /* impact */
-.imp{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.imp{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .imp__c{border-top:3px solid var(--yellow);padding-top:18px}
 .imp__t{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.01em}
 .imp__n{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
@@ -249,13 +241,10 @@ a{color:inherit}
   .hero{padding:44px 0 8px}
   .hero__top{grid-template-columns:1fr;gap:28px}
   .hero__photo img{aspect-ratio:4/3;object-position:center 58%}
-  .focus,.aw,.edu,.imp{grid-template-columns:1fr}
+  .aw,.edu,.imp{grid-template-columns:1fr}
   .imp{gap:24px}
-  .bars{gap:4px}
-  .bar{height:110px}
-  .bar__n{font-size:10px}
-  .bar__y{font-size:9.5px;letter-spacing:0}
-  .pub,.prj{grid-template-columns:1fr;gap:4px}
+  .pub,.prj,.xp{grid-template-columns:1fr;gap:4px}
+  .rd{grid-template-columns:1fr;gap:28px}
   .pub__y{padding-top:0}
   .nav__links{gap:14px}
   .nav__links a{font-size:10.5px}
@@ -276,7 +265,7 @@ a{color:inherit}
   <div class="nav__in">
     <div class="nav__id">A. N. PRAMUDHITA</div>
     <div class="nav__links">
-      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
@@ -317,55 +306,65 @@ a{color:inherit}
     <div class="stat"><div class="stat__n">6</div><div class="stat__l">Awards &amp; fellowships</div></div>
   </div>
 
-  <section class="cadence" aria-label="Publications per year">
-    <div class="cadence__head">
-      <p class="eyebrow">Publication cadence · 2017–2026</p>
-      <p class="cadence__hint">Tap a year to filter the publication list ↓</p>
-    </div>
-    <div class="bars" id="bars">
-      <button class="bar" data-year="2017" aria-pressed="false"><span class="bar__n">1</span><span class="bar__fill" style="height:20%;animation-delay:.05s"></span><span class="bar__y">’17</span></button>
-      <button class="bar" data-year="2018" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:40%;animation-delay:.1s"></span><span class="bar__y">’18</span></button>
-      <button class="bar" data-year="2019" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.15s"></span><span class="bar__y">’19</span></button>
-      <button class="bar" data-year="2020" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.2s"></span><span class="bar__y">’20</span></button>
-      <button class="bar" data-year="2021" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.25s"></span><span class="bar__y">’21</span></button>
-      <button class="bar" data-year="2022" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.3s"></span><span class="bar__y">’22</span></button>
-      <button class="bar" data-year="2023" aria-pressed="false"><span class="bar__n">5</span><span class="bar__fill" style="height:100%;animation-delay:.35s"></span><span class="bar__y">’23</span></button>
-      <button class="bar" data-year="2024" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.4s"></span><span class="bar__y">’24</span></button>
-      <button class="bar" data-year="2025" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.45s"></span><span class="bar__y">’25</span></button>
-      <button class="bar" data-year="2026" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:40%;animation-delay:.5s"></span><span class="bar__y">’26</span></button>
-    </div>
-  </section>
 </header>
 
 <main>
 
-<section class="sec wrap" id="research">
+<section class="sec wrap" id="skills">
   <div class="sec__head">
-    <h2 class="sec__title">Research focus</h2>
-    <span class="sec__meta">Four strands</span>
+    <h2 class="sec__title">Skill profile</h2>
+    <span class="sec__meta">Based on projects &amp; output</span>
   </div>
-  <div class="focus">
-    <div class="focus__item">
-      <div class="focus__k">Learning</div>
-      <h3 class="focus__t">AI in education &amp; learning analytics</h3>
-      <p class="focus__d">Learning management systems, serious games, and augmented-reality tools designed so that student behaviour leaves a readable trace — step counts, timing, and log data used to understand how learners think, not just what they score.</p>
+  <div class="rd">
+    <div class="rd__fig">
+    <svg class="rd__svg" viewBox="-60 10 520 380" role="img" aria-labelledby="rdt">
+      <title id="rdt">Skill profile radar: relative strength across six areas, derived from projects, publications, certifications, and roles</title>
+      <polygon class="rd__ring" points="200.0,176.4 220.4,188.2 220.4,211.8 200.0,223.6 179.6,211.8 179.6,188.2"/><polygon class="rd__ring" points="200.0,152.8 240.9,176.4 240.9,223.6 200.0,247.2 159.1,223.6 159.1,176.4"/><polygon class="rd__ring" points="200.0,129.2 261.3,164.6 261.3,235.4 200.0,270.8 138.7,235.4 138.7,164.6"/><polygon class="rd__ring" points="200.0,105.6 281.8,152.8 281.8,247.2 200.0,294.4 118.2,247.2 118.2,152.8"/><polygon class="rd__ring" points="200.0,82.0 302.2,141.0 302.2,259.0 200.0,318.0 97.8,259.0 97.8,141.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="82.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="141.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="318.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="141.0"/>
+      <polygon class="rd__area" points="200.0,86.7 263.4,163.4 268.5,239.5 200.0,254.3 144.8,231.9 97.8,141.0"/>
+      <text class="rd__lbl" x="200.0" y="56.0" text-anchor="middle">EdTech &amp; games</text><text class="rd__lbl" x="321.2" y="134.0" text-anchor="start">IoT &amp; embedded</text><text class="rd__lbl" x="321.2" y="274.0" text-anchor="start">ML &amp; AI</text><text class="rd__lbl" x="200.0" y="352.0" text-anchor="middle">Computer vision</text><text class="rd__lbl" x="78.8" y="274.0" text-anchor="end">Systems analysis</text><text class="rd__lbl" x="78.8" y="134.0" text-anchor="end">Leadership</text><g class="rd__pt" data-i="0"><circle class="rd__hit" cx="200.0" cy="86.7" r="16"/><circle class="rd__dot" cx="200.0" cy="86.7" r="5"/></g><g class="rd__pt" data-i="1"><circle class="rd__hit" cx="263.4" cy="163.4" r="16"/><circle class="rd__dot" cx="263.4" cy="163.4" r="5"/></g><g class="rd__pt" data-i="2"><circle class="rd__hit" cx="268.5" cy="239.5" r="16"/><circle class="rd__dot" cx="268.5" cy="239.5" r="5"/></g><g class="rd__pt" data-i="3"><circle class="rd__hit" cx="200.0" cy="254.3" r="16"/><circle class="rd__dot" cx="200.0" cy="254.3" r="5"/></g><g class="rd__pt" data-i="4"><circle class="rd__hit" cx="144.8" cy="231.9" r="16"/><circle class="rd__dot" cx="144.8" cy="231.9" r="5"/></g><g class="rd__pt" data-i="5"><circle class="rd__hit" cx="97.8" cy="141.0" r="16"/><circle class="rd__dot" cx="97.8" cy="141.0" r="5"/></g>
+    </svg>
+    <div class="rd__tip" id="rdtip" hidden></div>
     </div>
-    <div class="focus__item">
-      <div class="focus__k">IoT</div>
-      <h3 class="focus__t">Internet of Things &amp; smart systems</h3>
-      <p class="focus__d">Sensor-driven systems for healthcare queues, fire and crash detection, smart grids, and water access — built for low-resource settings where reliability matters more than novelty.</p>
-    </div>
-    <div class="focus__item">
-      <div class="focus__k">Data</div>
-      <h3 class="focus__t">Applied machine learning &amp; decision systems</h3>
-      <p class="focus__d">Forecasting, classification, and multi-criteria decision support applied to agriculture, health screening, digital forensics, and business siting problems.</p>
-    </div>
-    <div class="focus__item">
-      <div class="focus__k">Vocational</div>
-      <h3 class="focus__t">Vocational &amp; technology-enhanced learning</h3>
-      <p class="focus__d">Curriculum design, life-based and work-based learning models, and teacher capacity building for polytechnic and vocational education in Indonesia.</p>
-    </div>
+    <ol class="rd__list">
+      <li class="rd__row" data-i="0">
+        <div class="rd__h"><span class="rd__n">Educational technology &amp; game-based learning</span><span class="rd__v">96</span></div>
+        <div class="rd__bar"><span style="width:96%"></span></div>
+        <div class="rd__e">AR and gamified learning, serious games, LMS, computational thinking</div>
+        <div class="rd__s">2 projects led · 3 projects · 9 publications · 1 certification</div>
+      </li>
+      <li class="rd__row" data-i="1">
+        <div class="rd__h"><span class="rd__n">IoT &amp; embedded systems</span><span class="rd__v">62</span></div>
+        <div class="rd__bar"><span style="width:62%"></span></div>
+        <div class="rd__e">Crash detection, smart greenhouse, UAV monitoring, cable leakage-current sensing</div>
+        <div class="rd__s">1 project led · 3 projects · 6 publications</div>
+      </li>
+      <li class="rd__row" data-i="2">
+        <div class="rd__h"><span class="rd__n">Machine learning &amp; AI</span><span class="rd__v">67</span></div>
+        <div class="rd__bar"><span style="width:67%"></span></div>
+        <div class="rd__e">LSTM forecasting, LLM-based recommendation, geospatial AI, Naïve Bayes forensics</div>
+        <div class="rd__s">5 projects · 6 publications</div>
+      </li>
+      <li class="rd__row" data-i="3">
+        <div class="rd__h"><span class="rd__n">Computer vision</span><span class="rd__v">46</span></div>
+        <div class="rd__bar"><span style="width:46%"></span></div>
+        <div class="rd__e">Driver-drowsiness and safety-helmet detection, human-following robot</div>
+        <div class="rd__s">2 projects led · 1 project · 1 teaching role</div>
+      </li>
+      <li class="rd__row" data-i="4">
+        <div class="rd__h"><span class="rd__n">Software &amp; systems analysis</span><span class="rd__v">54</span></div>
+        <div class="rd__bar"><span style="width:54%"></span></div>
+        <div class="rd__e">Requirements and architecture, blockchain/ZKP, COBIT 5, mobile and OOP development</div>
+        <div class="rd__s">2 projects · 3 certifications · 1 analyst role</div>
+      </li>
+      <li class="rd__row" data-i="5">
+        <div class="rd__h"><span class="rd__n">Leadership &amp; mentoring</span><span class="rd__v">100</span></div>
+        <div class="rd__bar"><span style="width:100%"></span></div>
+        <div class="rd__e">Five funded projects led, ILM Level 3, SMI mentor &amp; consultant, 70+ theses supervised</div>
+        <div class="rd__s">5 projects led · 2 certifications · 2 Tech4Good awards · 1 trainer role · 1 thesis supervision</div>
+      </li>
+    </ol>
   </div>
+  <p class="rd__note">Relative score (strongest area = 100). Weighted from the record on this page: project led 3, project member 2, publication 1, certification 2, relevant role 3, award 2.</p>
 </section>
 
 <section class="sec wrap" id="experience">
@@ -373,47 +372,34 @@ a{color:inherit}
     <h2 class="sec__title">Experience</h2>
     <span class="sec__meta">2011 — present</span>
   </div>
-  <div class="tl">
-    <div class="tl__item tl__item--now">
-      <div class="tl__when">2018 — PRESENT</div>
-      <h3 class="tl__role">Lecturer, full-time</h3>
-      <div class="tl__org">Department of Information Technology, Politeknik Negeri Malang</div>
-      <ul class="tl__list">
-        <li>Teach Information Technology, IoT, and technology-enhanced learning courses</li>
-        <li>Supervise about seven final-year theses a year, plus student projects and industry internships</li>
-        <li>Run and publish research in educational technology and IoT</li>
-        <li>Contribute to curriculum development, accreditation, and departmental administration</li>
-        <li>Lead community engagement programmes in digital education and IoT</li>
-        <li>Contract lecturer 2018–2020; civil servant (ASN) status since 2020</li>
-      </ul>
+  <div class="xps">
+    <div class="xp xp--now">
+      <div class="xp__when">2018 — present</div>
+      <div>
+        <h3 class="xp__role">Lecturer <span class="xp__org">· Department of Information Technology, Politeknik Negeri Malang</span></h3>
+        <p class="xp__d">Teaches IT, IoT, and technology-enhanced learning; supervises about seven theses a year; leads funded research, curriculum development, and community programmes. Civil servant (ASN) since 2020.</p>
+      </div>
     </div>
-    <div class="tl__item">
-      <div class="tl__when">2016 — 2018</div>
-      <h3 class="tl__role">Part-time lecturer</h3>
-      <div class="tl__org">Faculty of Science and Technology, UIN Malang</div>
-      <ul class="tl__list">
-        <li>Taught Image Processing and Operating Systems while working full-time as a system analyst</li>
-      </ul>
+    <div class="xp">
+      <div class="xp__when">2016 — 2018</div>
+      <div>
+        <h3 class="xp__role">Part-time lecturer <span class="xp__org">· Faculty of Science and Technology, UIN Malang</span></h3>
+        <p class="xp__d">Taught Image Processing and Operating Systems alongside a full-time analyst role.</p>
+      </div>
     </div>
-    <div class="tl__item">
-      <div class="tl__when">2015 — 2018</div>
-      <h3 class="tl__role">System analyst</h3>
-      <div class="tl__org">Technobit Indonesia</div>
-      <ul class="tl__list">
-        <li>Ran system and requirements analysis with stakeholders</li>
-        <li>Designed system architecture and technical specifications</li>
-        <li>Coordinated with development teams through implementation</li>
-        <li>Optimised system performance and reliability, and wrote the documentation</li>
-      </ul>
+    <div class="xp">
+      <div class="xp__when">2015 — 2018</div>
+      <div>
+        <h3 class="xp__role">System analyst <span class="xp__org">· Technobit Indonesia</span></h3>
+        <p class="xp__d">Requirements analysis, system architecture and specifications, and coordination with development teams through delivery.</p>
+      </div>
     </div>
-    <div class="tl__item">
-      <div class="tl__when">2011 — 2015</div>
-      <h3 class="tl__role">Trainer &amp; mentor</h3>
-      <div class="tl__org">Kiass People Development Center</div>
-      <ul class="tl__list">
-        <li>Delivered training in public speaking, entrepreneurship, service excellence, and self-development</li>
-        <li>Designed training material and gave structured performance feedback</li>
-      </ul>
+    <div class="xp">
+      <div class="xp__when">2011 — 2015</div>
+      <div>
+        <h3 class="xp__role">Trainer &amp; mentor <span class="xp__org">· Kiass People Development Center</span></h3>
+        <p class="xp__d">Training in public speaking, entrepreneurship, service excellence, and self-development.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -969,9 +955,14 @@ a{color:inherit}
       <p class="imp__d">A national computational thinking programme run with Bebras Indonesia and Google, training teachers across Indonesia to bring computational thinking into ordinary classrooms.</p>
     </div>
     <div class="imp__c">
-      <div class="imp__t">IEEE Tech4Good — project lead</div>
+      <div class="imp__t">IEEE Tech4Good 2025 — project lead</div>
       <div class="imp__n">200+ students · 60 families</div>
       <p class="imp__d">Clean water access and sanitation for Albasyiroh Boarding School in a remote area of East Java, serving students, teachers, and surrounding households.</p>
+    </div>
+    <div class="imp__c">
+      <div class="imp__t">IEEE Tech4Good 2026 — Smart WASH</div>
+      <div class="imp__n">IoT water &amp; sanitation</div>
+      <p class="imp__d">IoT-driven water and sanitation solutions for Daarulukhuwwah Boarding School, bringing sensor-based monitoring to the school’s water supply and facilities.</p>
     </div>
   </div>
 </section>
@@ -1000,7 +991,7 @@ a{color:inherit}
 <footer class="foot" id="contact">
   <div class="foot__in">
     <h2 class="foot__t">Open to PhD positions and research collaboration.</h2>
-    <p style="margin-top:18px;max-width:56ch;color:rgba(234,241,248,.84)">Interested in AI-driven educational tools, learning analytics, IoT-based learning environments, and technology-enhanced learning system design. Based in Malang, Indonesia — and glad to talk with supervisors and groups anywhere.</p>
+    <p style="margin-top:18px;max-width:56ch;color:rgba(234,241,248,.84)">Interested in applied AI, computer vision, and IoT systems for industry, infrastructure, and education — from prototype to funded deployment. Based in Malang, Indonesia, and glad to talk with PhD supervisors, research groups, and industry partners anywhere.</p>
     <div class="foot__l">
       <a href="mailto:agung.pramudhita@polinema.ac.id">Email</a>
       <a href="https://scholar.google.com/citations?hl=en&amp;user=hpVrzLoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
@@ -1015,32 +1006,28 @@ a{color:inherit}
 (function(){
   var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
   var fBtns = Array.prototype.slice.call(document.querySelectorAll('#filters .f'));
-  var yBtns = Array.prototype.slice.call(document.querySelectorAll('.bar'));
   var countEl = document.getElementById('count');
   var emptyEl = document.getElementById('empty');
-  var tag = 'all', year = null, pubAll = false, TOP = 5;
+  var tag = 'all', pubAll = false, TOP = 5;
   var pubMore = document.getElementById('pubmore');
 
   function apply(){
     var n = 0;
     pubs.forEach(function(p){
-      var ok = (tag === 'all' || p.dataset.tag === tag) &&
-               (year === null || p.dataset.year === year);
+      var ok = tag === 'all' || p.dataset.tag === tag;
       if (ok) n++;
       p.hidden = !ok || (!pubAll && n > TOP);
     });
     setMore(pubMore, n, pubAll, 'publications');
     fBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.tag === tag)); });
-    yBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.year === year)); });
 
     var parts = [];
     if (tag !== 'all') parts.push(fBtns.filter(function(b){return b.dataset.tag===tag;})[0].textContent.trim());
-    if (year) parts.push(year);
     countEl.innerHTML = 'Showing ' + (pubAll ? n : Math.min(n, TOP)) + ' of ' + n + (parts.length ? ' — ' + parts.join(' · ') : '');
     if (parts.length){
       var r = document.createElement('button');
       r.textContent = 'Show all';
-      r.addEventListener('click', function(){ tag='all'; year=null; pubAll=true; apply(); });
+      r.addEventListener('click', function(){ tag='all'; pubAll=true; apply(); });
       countEl.appendChild(r);
     }
     emptyEl.hidden = n !== 0;
@@ -1058,13 +1045,6 @@ a{color:inherit}
 
   fBtns.forEach(function(b){
     b.addEventListener('click', function(){ tag = b.dataset.tag; apply(); });
-  });
-  yBtns.forEach(function(b){
-    b.addEventListener('click', function(){
-      year = (year === b.dataset.year) ? null : b.dataset.year;
-      apply();
-      document.getElementById('publications').scrollIntoView({behavior:'smooth', block:'start'});
-    });
   });
 
   apply();
@@ -1101,6 +1081,30 @@ a{color:inherit}
     if (!prjAll) document.getElementById('projects').scrollIntoView({behavior:'smooth', block:'start'});
   });
   applyP();
+
+  // skill radar hover
+  var rdPts = Array.prototype.slice.call(document.querySelectorAll('.rd__pt'));
+  var rdRows = Array.prototype.slice.call(document.querySelectorAll('.rd__row'));
+  var rdTip = document.getElementById('rdtip');
+  var rdSvg = document.querySelector('.rd__svg');
+  function rdOn(i){
+    rdPts.forEach(function(p){ p.classList.toggle('is-on', p.dataset.i === i); });
+    rdRows.forEach(function(r){ r.classList.toggle('is-on', r.dataset.i === i); });
+    if (i === null){ rdTip.hidden = true; return; }
+    var row = rdRows[+i], dot = rdPts[+i].querySelector('.rd__dot');
+    var sb = rdSvg.getBoundingClientRect(), fb = rdSvg.parentNode.getBoundingClientRect();
+    var k = sb.width / 520;
+    rdTip.innerHTML = '<b>' + row.querySelector('.rd__n').textContent + ' · ' + row.querySelector('.rd__v').textContent +
+      '</b><br>' + row.querySelector('.rd__s').textContent;
+    rdTip.style.left = (sb.left - fb.left + (dot.cx.baseVal.value + 60) * k) + 'px';
+    rdTip.style.top = (sb.top - fb.top + (dot.cy.baseVal.value - 10) * k) + 'px';
+    rdTip.hidden = false;
+  }
+  rdPts.concat(rdRows).forEach(function(el){
+    el.addEventListener('mouseenter', function(){ rdOn(el.dataset.i); });
+    el.addEventListener('mouseleave', function(){ rdOn(null); });
+    el.addEventListener('click', function(){ rdOn(el.dataset.i); });
+  });
 
   // gentle reveal on scroll
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
