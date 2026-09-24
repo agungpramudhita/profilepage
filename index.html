@@ -67,7 +67,7 @@ a{color:inherit}
 .hero{padding:72px 0 8px}
 .hero__top{display:grid;grid-template-columns:1.45fr .8fr;gap:54px;align-items:end}
 .hero__photo img{
-  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;
+  width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 50%;
   display:block;border-radius:3px;background:var(--card);border:1px solid var(--line);
 }
 .hero__name{
@@ -107,7 +107,7 @@ a{color:inherit}
 .cadence{margin-top:64px;border-top:1px solid var(--line);padding-top:22px}
 .cadence__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
 .cadence__hint{font-family:var(--mono);font-size:11px;color:var(--ink2);letter-spacing:.04em}
-.bars{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:22px;align-items:end}
+.bars{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:22px;align-items:end}
 .bar{
   background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;
   display:flex;flex-direction:column;justify-content:flex-end;height:150px;
@@ -229,7 +229,7 @@ a{color:inherit}
   .stats{grid-template-columns:repeat(2,1fr)}
   .hero{padding:44px 0 8px}
   .hero__top{grid-template-columns:1fr;gap:28px}
-  .hero__photo img{aspect-ratio:3/2;object-position:center 20%}
+  .hero__photo img{aspect-ratio:4/3;object-position:center 58%}
   .focus,.aw,.edu,.imp{grid-template-columns:1fr}
   .imp{gap:24px}
   .bars{gap:4px}
@@ -291,26 +291,27 @@ a{color:inherit}
 
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__l">Years in higher education</div></div>
-    <div class="stat"><div class="stat__n">29</div><div class="stat__l">Publications</div></div>
+    <div class="stat"><div class="stat__n">31</div><div class="stat__l">Publications</div></div>
     <div class="stat"><div class="stat__n">70+</div><div class="stat__l">Theses supervised since 2016</div></div>
     <div class="stat"><div class="stat__n">6</div><div class="stat__l">Awards &amp; fellowships</div></div>
   </div>
 
   <section class="cadence" aria-label="Publications per year">
     <div class="cadence__head">
-      <p class="eyebrow">Publication cadence · 2017–2025</p>
+      <p class="eyebrow">Publication cadence · 2017–2026</p>
       <p class="cadence__hint">Tap a year to filter the publication list ↓</p>
     </div>
     <div class="bars" id="bars">
-      <button class="bar" data-year="2017" aria-pressed="false"><span class="bar__n">1</span><span class="bar__fill" style="height:17%;animation-delay:.05s"></span><span class="bar__y">’17</span></button>
-      <button class="bar" data-year="2018" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:33%;animation-delay:.1s"></span><span class="bar__y">’18</span></button>
-      <button class="bar" data-year="2019" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:50%;animation-delay:.15s"></span><span class="bar__y">’19</span></button>
-      <button class="bar" data-year="2020" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:50%;animation-delay:.2s"></span><span class="bar__y">’20</span></button>
-      <button class="bar" data-year="2021" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:50%;animation-delay:.25s"></span><span class="bar__y">’21</span></button>
-      <button class="bar" data-year="2022" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:67%;animation-delay:.3s"></span><span class="bar__y">’22</span></button>
-      <button class="bar" data-year="2023" aria-pressed="false"><span class="bar__n">5</span><span class="bar__fill" style="height:83%;animation-delay:.35s"></span><span class="bar__y">’23</span></button>
-      <button class="bar" data-year="2024" aria-pressed="false"><span class="bar__n">6</span><span class="bar__fill" style="height:100%;animation-delay:.4s"></span><span class="bar__y">’24</span></button>
-      <button class="bar" data-year="2025" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:33%;animation-delay:.45s"></span><span class="bar__y">’25</span></button>
+      <button class="bar" data-year="2017" aria-pressed="false"><span class="bar__n">1</span><span class="bar__fill" style="height:20%;animation-delay:.05s"></span><span class="bar__y">’17</span></button>
+      <button class="bar" data-year="2018" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:40%;animation-delay:.1s"></span><span class="bar__y">’18</span></button>
+      <button class="bar" data-year="2019" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.15s"></span><span class="bar__y">’19</span></button>
+      <button class="bar" data-year="2020" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.2s"></span><span class="bar__y">’20</span></button>
+      <button class="bar" data-year="2021" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.25s"></span><span class="bar__y">’21</span></button>
+      <button class="bar" data-year="2022" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.3s"></span><span class="bar__y">’22</span></button>
+      <button class="bar" data-year="2023" aria-pressed="false"><span class="bar__n">5</span><span class="bar__fill" style="height:100%;animation-delay:.35s"></span><span class="bar__y">’23</span></button>
+      <button class="bar" data-year="2024" aria-pressed="false"><span class="bar__n">4</span><span class="bar__fill" style="height:80%;animation-delay:.4s"></span><span class="bar__y">’24</span></button>
+      <button class="bar" data-year="2025" aria-pressed="false"><span class="bar__n">3</span><span class="bar__fill" style="height:60%;animation-delay:.45s"></span><span class="bar__y">’25</span></button>
+      <button class="bar" data-year="2026" aria-pressed="false"><span class="bar__n">2</span><span class="bar__fill" style="height:40%;animation-delay:.5s"></span><span class="bar__y">’26</span></button>
     </div>
   </section>
 </header>
@@ -399,7 +400,7 @@ a{color:inherit}
 <section class="sec wrap" id="publications">
   <div class="sec__head">
     <h2 class="sec__title">Publications</h2>
-    <span class="sec__meta">29 items</span>
+    <span class="sec__meta">31 items</span>
   </div>
   <div class="filters" id="filters">
     <button class="f" data-tag="all" aria-pressed="true">All</button>
@@ -411,6 +412,24 @@ a{color:inherit}
   <p class="count" id="count"></p>
 
   <ul class="pubs" id="pubs">
+
+    <li class="pub" data-year="2026" data-tag="vocational">
+      <div class="pub__y">2026</div>
+      <div>
+        <div class="pub__t"><a href="https://scholar.google.com/scholar?q=%22Pemberdayaan+Melalui+Pelatihan+dan+Penerapan+Sistem+Informasi+Keuangan+Digital+untuk+Penguatan+Branding+UMKM+Pandawa+Bunulrejo%22" target="_blank" rel="noopener">Empowerment through training and implementation of a digital financial information system to strengthen the branding of UMKM Pandawa Bunulrejo, Malang</a></div>
+        <div class="pub__v">DEDIKASI SAINTEK: Jurnal Pengabdian Masyarakat, 5(2), 152–166</div>
+        <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
+
+    <li class="pub" data-year="2026" data-tag="vocational">
+      <div class="pub__y">2026</div>
+      <div>
+        <div class="pub__t"><a href="https://scholar.google.com/scholar?q=%22Peningkatan+Brand+Awareness+Melalui+Redesain+Kemasan%22" target="_blank" rel="noopener">Increasing brand awareness through packaging redesign: mentoring UMKM Pandawa Food &amp; Cookies Bunulrejo</a></div>
+        <div class="pub__v">Jurnal Pengabdian kepada Masyarakat, 13(1), 25–30</div>
+        <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
 
     <li class="pub" data-year="2025" data-tag="learning">
       <div class="pub__y">2025</div>
@@ -430,6 +449,15 @@ a{color:inherit}
       </div>
     </li>
 
+    <li class="pub" data-year="2025" data-tag="iot">
+      <div class="pub__y">2025</div>
+      <div>
+        <div class="pub__t"><a href="https://pubs.aip.org/aip/acp/article-abstract/3334/1/030008/3370126/IoT-based-crash-detection-system" target="_blank" rel="noopener">IoT-based crash detection system</a></div>
+        <div class="pub__v">7th International Conference on Applied Science and Technology (iCAST), Bandung</div>
+        <span class="pub__tag">Conference paper</span>
+      </div>
+    </li>
+
     <li class="pub" data-year="2024" data-tag="data">
       <div class="pub__y">2024</div>
       <div>
@@ -445,24 +473,6 @@ a{color:inherit}
         <div class="pub__t"><a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/download/5907/pdf" target="_blank" rel="noopener">Augmented reality educational game based on realistic mathematics education to improve students’ computational thinking</a></div>
         <div class="pub__v">Inteligensi: Jurnal Ilmu Pendidikan, 7(1)</div>
         <span class="pub__tag">Journal article</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2024" data-tag="iot">
-      <div class="pub__y">2024</div>
-      <div>
-        <div class="pub__t"><a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" target="_blank" rel="noopener">Development of sensor-based fire detection devices for electronic security</a></div>
-        <div class="pub__v">Komputika: Jurnal Sistem Komputer, 13(1), 1–10</div>
-        <span class="pub__tag">Journal article</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2024" data-tag="iot">
-      <div class="pub__y">2024</div>
-      <div>
-        <div class="pub__t"><a href="https://pubs.aip.org/aip/acp/article-abstract/3334/1/030008/3370126/IoT-based-crash-detection-system" target="_blank" rel="noopener">IoT-based crash detection system</a></div>
-        <div class="pub__v">7th International Conference on Applied Science and Technology (iCAST), Bandung</div>
-        <span class="pub__tag">Conference paper</span>
       </div>
     </li>
 
@@ -616,6 +626,15 @@ a{color:inherit}
         <div class="pub__t"><a href="https://pubs.aip.org/aip/acp/article-abstract/2531/1/050001/2887510/Improving-vocational-education-quality-through" target="_blank" rel="noopener">Improving the quality of vocational education through life-based learning</a></div>
         <div class="pub__v">AIP Conference Proceedings</div>
         <span class="pub__tag">Conference paper</span>
+      </div>
+    </li>
+
+    <li class="pub" data-year="2020" data-tag="iot">
+      <div class="pub__y">2020</div>
+      <div>
+        <div class="pub__t"><a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" target="_blank" rel="noopener">Development of sensor-based fire detection devices for electronic security</a></div>
+        <div class="pub__v">Komputika: Jurnal Sistem Komputer, 13(1), 1–10</div>
+        <span class="pub__tag">Journal article</span>
       </div>
     </li>
 
@@ -793,7 +812,7 @@ a{color:inherit}
     var parts = [];
     if (tag !== 'all') parts.push(fBtns.filter(function(b){return b.dataset.tag===tag;})[0].textContent.trim());
     if (year) parts.push(year);
-    countEl.innerHTML = 'Showing ' + n + ' of 29' + (parts.length ? ' — ' + parts.join(' · ') : '');
+    countEl.innerHTML = 'Showing ' + n + ' of 31' + (parts.length ? ' — ' + parts.join(' · ') : '');
     if (parts.length){
       var r = document.createElement('button');
       r.textContent = 'Show all';
