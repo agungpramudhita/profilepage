@@ -163,32 +163,20 @@ a{color:inherit}
 .more[hidden]{display:none}
 .more__n{background:var(--yellow);color:var(--ink);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.04em}
 
-/* skill radar */
-.rd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
-.rd__fig{position:relative;max-width:520px;width:100%;margin:0 auto}
-.rd__svg{width:100%;height:auto;display:block;overflow:visible}
-.rd__ring{fill:none;stroke:var(--line);stroke-width:1}
-.rd__axis{stroke:var(--line);stroke-width:1}
-.rd__area{fill:rgba(22,76,147,.16);stroke:var(--blue);stroke-width:2;stroke-linejoin:round}
-.rd__lbl{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink2)}
-.rd__dot{fill:var(--yellow);stroke:var(--blue);stroke-width:2;transition:r .15s}
-.rd__hit{fill:transparent;cursor:pointer}
-.rd__pt.is-on .rd__dot{r:7}
-.rd__tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--card);
-  font-family:var(--mono);font-size:11px;line-height:1.5;padding:8px 10px;border-radius:4px;max-width:220px;
-  transform:translate(-50%,calc(-100% - 12px));white-space:normal}
-.rd__tip b{font-weight:500;color:var(--yellow)}
-.rd__list{list-style:none;display:grid;gap:14px}
-.rd__row{padding:4px 0;border-radius:4px;transition:background .15s}
-.rd__row.is-on{background:var(--card);box-shadow:0 0 0 8px var(--card)}
-.rd__h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.rd__n{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em}
-.rd__v{font-family:var(--mono);font-size:12px;color:var(--blue)}
-.rd__bar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
-.rd__bar span{display:block;height:100%;background:var(--blue);border-radius:2px}
-.rd__e{font-size:14px;color:var(--ink2);margin-top:6px}
-.rd__s{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--orange);margin-top:3px}
-.rd__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:22px;letter-spacing:.03em}
+/* research expertise */
+.ex__row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1.25fr);gap:28px;
+  padding:24px 0;border-bottom:1px solid var(--line)}
+.ex__t{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.3}
+.ex__d{font-size:14.5px;color:var(--ink2);margin-top:6px}
+.ex__k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px}
+.ex__m{display:flex;flex-wrap:wrap;gap:6px}
+.ex__m span{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--blue);
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px}
+.ex__e{list-style:none;display:grid;gap:6px}
+.ex__e li{display:grid;grid-template-columns:44px 1fr;gap:10px;font-size:14px;color:var(--ink);line-height:1.45}
+.ex__e b{font-family:var(--mono);font-weight:400;font-size:11.5px;color:var(--orange);padding-top:2px}
+.ex__e em{color:var(--ink2)}
+.ex__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:18px;letter-spacing:.03em}
 
 /* research projects */
 .prjs{list-style:none}
@@ -255,7 +243,7 @@ a{color:inherit}
   .aw,.edu,.imp{grid-template-columns:1fr}
   .imp{gap:24px}
   .pub,.prj,.xp{grid-template-columns:1fr;gap:4px}
-  .rd{grid-template-columns:1fr;gap:28px}
+  .ex__row{grid-template-columns:1fr;gap:16px}
   .pub__y{padding-top:0}
   .nav__links{gap:14px}
   .nav__links a{font-size:10.5px}
@@ -280,7 +268,7 @@ a{color:inherit}
       <div class="nav__sw" aria-label="Profile version"><a href="./">Full</a><a href="learning.html">Learning</a><a href="iot.html" aria-current="page">IoT</a></div>
     </div>
     <div class="nav__links">
-      <a href="#skills">Skills</a>
+      <a href="#expertise">Expertise</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
@@ -325,61 +313,84 @@ a{color:inherit}
 
 <main>
 
-<section class="sec wrap" id="skills">
+<section class="sec wrap" id="expertise">
   <div class="sec__head">
-    <h2 class="sec__title">Skill profile</h2>
+    <h2 class="sec__title">Research expertise</h2>
     <span class="sec__meta">IoT, vision &amp; ML</span>
   </div>
-  <div class="rd">
-    <div class="rd__fig">
-    <svg class="rd__svg" viewBox="-60 10 520 380" role="img" aria-labelledby="rdt">
-      <title id="rdt">Skill profile radar: relative strength across six areas, derived from projects, publications, certifications, and roles</title>
-      <polygon class="rd__ring" points="200.0,176.4 220.4,188.2 220.4,211.8 200.0,223.6 179.6,211.8 179.6,188.2"/><polygon class="rd__ring" points="200.0,152.8 240.9,176.4 240.9,223.6 200.0,247.2 159.1,223.6 159.1,176.4"/><polygon class="rd__ring" points="200.0,129.2 261.3,164.6 261.3,235.4 200.0,270.8 138.7,235.4 138.7,164.6"/><polygon class="rd__ring" points="200.0,105.6 281.8,152.8 281.8,247.2 200.0,294.4 118.2,247.2 118.2,152.8"/><polygon class="rd__ring" points="200.0,82.0 302.2,141.0 302.2,259.0 200.0,318.0 97.8,259.0 97.8,141.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="82.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="141.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="318.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="141.0"/>
-      <polygon class="rd__area" points="200.0,82.0 259.3,165.8 264.4,237.2 200.0,237.8 140.7,234.2 157.1,175.2"/>
-      <text class="rd__lbl" x="200.0" y="56.0" text-anchor="middle">IoT &amp; sensors</text><text class="rd__lbl" x="321.2" y="134.0" text-anchor="start">Computer vision</text><text class="rd__lbl" x="321.2" y="274.0" text-anchor="start">ML &amp; forecasting</text><text class="rd__lbl" x="200.0" y="352.0" text-anchor="middle">Decision support</text><text class="rd__lbl" x="78.8" y="274.0" text-anchor="end">Systems arch.</text><text class="rd__lbl" x="78.8" y="134.0" text-anchor="end">Smart energy</text><g class="rd__pt" data-i="0"><circle class="rd__hit" cx="200.0" cy="82.0" r="16"/><circle class="rd__dot" cx="200.0" cy="82.0" r="5"/></g><g class="rd__pt" data-i="1"><circle class="rd__hit" cx="259.3" cy="165.8" r="16"/><circle class="rd__dot" cx="259.3" cy="165.8" r="5"/></g><g class="rd__pt" data-i="2"><circle class="rd__hit" cx="264.4" cy="237.2" r="16"/><circle class="rd__dot" cx="264.4" cy="237.2" r="5"/></g><g class="rd__pt" data-i="3"><circle class="rd__hit" cx="200.0" cy="237.8" r="16"/><circle class="rd__dot" cx="200.0" cy="237.8" r="5"/></g><g class="rd__pt" data-i="4"><circle class="rd__hit" cx="140.7" cy="234.2" r="16"/><circle class="rd__dot" cx="140.7" cy="234.2" r="5"/></g><g class="rd__pt" data-i="5"><circle class="rd__hit" cx="157.1" cy="175.2" r="16"/><circle class="rd__dot" cx="157.1" cy="175.2" r="5"/></g>
-    </svg>
-    <div class="rd__tip" id="rdtip" hidden></div>
+  <div class="ex">
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">IoT &amp; sensor systems</h3>
+        <p class="ex__d">Connected devices that detect events and report them in real time, built for low-resource settings.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Sensor &amp; embedded prototyping</span><span>System design</span><span>Field evaluation</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2025</b><span>IoT-based crash detection system — <em>AIP Conference Proceedings (iCAST)</em></span></li><li><b>2024</b><span>Funded project lead: IoT car security for crash detection</span></li><li><b>2024</b><span>Best Paper Award — iCAST, Bandung</span></li><li><b>2024</b><span>Sensor-based fire detection devices — <em>Komputika</em></span></li></ul>
+      </div>
     </div>
-    <ol class="rd__list">
-      <li class="rd__row" data-i="0">
-        <div class="rd__h"><span class="rd__n">IoT &amp; sensor systems</span><span class="rd__v">100</span></div>
-        <div class="rd__bar"><span style="width:100%"></span></div>
-        <div class="rd__e">Crash detection, smart greenhouse, UAV monitoring, fire detection, smart water and sanitation</div>
-        <div class="rd__s">1 project led · 3 projects · 6 publications · 2 Tech4Good awards</div>
-      </li>
-      <li class="rd__row" data-i="1">
-        <div class="rd__h"><span class="rd__n">Computer vision</span><span class="rd__v">58</span></div>
-        <div class="rd__bar"><span style="width:58%"></span></div>
-        <div class="rd__e">Driver-drowsiness and safety-helmet detection, human-following robot</div>
-        <div class="rd__s">2 projects led · 1 project · 1 teaching role</div>
-      </li>
-      <li class="rd__row" data-i="2">
-        <div class="rd__h"><span class="rd__n">Machine learning &amp; forecasting</span><span class="rd__v">63</span></div>
-        <div class="rd__bar"><span style="width:63%"></span></div>
-        <div class="rd__e">LSTM and BiLSTM weather forecasting, LLM diet recommendation, geospatial AI, Naïve Bayes forensics</div>
-        <div class="rd__s">4 projects · 4 publications</div>
-      </li>
-      <li class="rd__row" data-i="3">
-        <div class="rd__h"><span class="rd__n">Decision support &amp; data analysis</span><span class="rd__v">32</span></div>
-        <div class="rd__bar"><span style="width:32%"></span></div>
-        <div class="rd__e">WASPAS and MOORA decision support, electricity demand assessment</div>
-        <div class="rd__s">1 project · 2 publications · 1 certification</div>
-      </li>
-      <li class="rd__row" data-i="4">
-        <div class="rd__h"><span class="rd__n">Software &amp; systems architecture</span><span class="rd__v">58</span></div>
-        <div class="rd__bar"><span style="width:58%"></span></div>
-        <div class="rd__e">Requirements and architecture, blockchain with zero-knowledge proofs, COBIT 5, mobile development</div>
-        <div class="rd__s">2 projects · 2 certifications · 1 analyst role</div>
-      </li>
-      <li class="rd__row" data-i="5">
-        <div class="rd__h"><span class="rd__n">Smart energy &amp; infrastructure</span><span class="rd__v">42</span></div>
-        <div class="rd__bar"><span style="width:42%"></span></div>
-        <div class="rd__e">Smart grids, cable leakage-current monitoring, building electricity demand, city monitoring</div>
-        <div class="rd__s">3 projects · 2 publications</div>
-      </li>
-    </ol>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Smart energy &amp; infrastructure</h3>
+        <p class="ex__d">Monitoring and modelling electricity use and infrastructure condition.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Smart grid</span><span>Condition monitoring</span><span>Consumption analysis</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2018</b><span>Integration of IoT in smart grid — <em>IEEE</em></span></li><li><b>2021</b><span>Smart grid for electricity efficiency in manufacturing — <em>MATICS</em></span></li><li><b>2026</b><span>Funded projects: cable leakage-current monitoring; building electricity demand</span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Computer vision</h3>
+        <p class="ex__d">Detecting people, posture, and protective equipment from camera feeds for safety-critical settings.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Image processing</span><span>Object &amp; state detection</span><span>Mobile deployment</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2026</b><span>Funded project lead: mobile driver-drowsiness detection for fleets</span></li><li><b>2025</b><span>Funded project lead: safety-helmet compliance monitoring</span></li><li><b>2026</b><span>Funded project: image-processing human-following robot</span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Machine learning &amp; forecasting</h3>
+        <p class="ex__d">Sequence models, classification, and data augmentation for prediction under noisy, limited data.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>LSTM / BiLSTM</span><span>Data augmentation</span><span>Naïve Bayes</span><span>Exponential smoothing</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2025</b><span>BiLSTM with multi-scenario preprocessing for weather forecasting — <em>ICAITech</em></span></li><li><b>2023</b><span>Digital forensics on Telegram using Naïve Bayes — <em>Sinkron</em></span></li><li><b>2021</b><span>Forecasting land business opportunities — <em>Jurnal Informatika Polinema</em></span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Decision support &amp; information systems</h3>
+        <p class="ex__d">Multi-criteria decision models and service systems grounded in requirements analysis.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>MCDM (WASPAS, MOORA)</span><span>Queueing models</span><span>Requirements analysis</span><span>User-centred design</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2017</b><span>Queue models in healthcare information systems — <em>IEEE</em></span></li><li><b>2019</b><span>Decision support for farm location using MOORA — <em>Antivirus</em></span></li><li><b>2024</b><span>WASPAS for selecting securities companies — <em>MISTER</em></span></li><li><b>2022</b><span>Inixindo Certified Business Analyst</span></li></ul>
+      </div>
+    </div>
   </div>
-  <p class="rd__note">Relative score (strongest area = 100). Weighted from the record on this page: project led 3, project member 2, publication 1, certification 2, relevant role 3, award 2.</p>
+  <p class="ex__note">Evidence lists peer-reviewed output, funded projects (as lead or member), awards, and certifications from this page.</p>
 </section>
 
 <section class="sec wrap" id="experience">
@@ -460,11 +471,20 @@ a{color:inherit}
       </div>
     </li>
 
+    <li class="pub" data-year="2024" data-tag="iot">
+      <div class="pub__y">2024</div>
+      <div>
+        <div class="pub__t"><a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" target="_blank" rel="noopener">Development of sensor-based fire detection devices for electronic security</a></div>
+        <div class="pub__v">Komputika: Jurnal Sistem Komputer, 13(1), 121–130</div>
+        <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
+
     <li class="pub" data-year="2023" data-tag="data">
       <div class="pub__y">2023</div>
       <div>
-        <div class="pub__t"><a href="https://journals.usm.ac.id/index.php/transformatika/article/view/6274" target="_blank" rel="noopener">Digital forensic investigation of sexual harassment on Telegram using Naïve Bayes</a></div>
-        <div class="pub__v">Jurnal Transformatika, 21(1)</div>
+        <div class="pub__t"><a href="https://doi.org/10.33395/sinkron.v8i3.12514" target="_blank" rel="noopener">Digital forensic investigation of sexual harassment on Telegram using Naïve Bayes</a></div>
+        <div class="pub__v">Sinkron: Jurnal dan Penelitian Teknik Informatika, 8(3), 1409–1417</div>
         <span class="pub__tag">Journal article</span>
       </div>
     </li>
@@ -492,15 +512,6 @@ a{color:inherit}
       <div>
         <div class="pub__t"><a href="https://ejournal.uin-malang.ac.id/index.php/saintek/article/download/11566/8590" target="_blank" rel="noopener">Smart grid for electricity consumption efficiency in manufacturing</a></div>
         <div class="pub__v">MATICS, 13(1)</div>
-        <span class="pub__tag">Journal article</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2020" data-tag="iot">
-      <div class="pub__y">2020</div>
-      <div>
-        <div class="pub__t"><a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" target="_blank" rel="noopener">Development of sensor-based fire detection devices for electronic security</a></div>
-        <div class="pub__v">Komputika: Jurnal Sistem Komputer, 13(1), 1–10</div>
         <span class="pub__tag">Journal article</span>
       </div>
     </li>
@@ -535,8 +546,8 @@ a{color:inherit}
     <li class="pub" data-year="2017" data-tag="iot">
       <div class="pub__y">2017</div>
       <div>
-        <div class="pub__t"><a href="https://ieeexplore.ieee.org/document/8281914" target="_blank" rel="noopener">Queue models in healthcare facilities information systems</a></div>
-        <div class="pub__v">International Conference of Communication and Informatics Engineering (ICCIE), Malang</div>
+        <div class="pub__t"><a href="https://doi.org/10.1109/ICEEIE.2017.8328780" target="_blank" rel="noopener">Queue models in healthcare facilities information systems</a></div>
+        <div class="pub__v">5th International Conference on Electrical, Electronics and Information Engineering (ICEEIE), Malang</div>
         <span class="pub__tag">Conference paper</span>
       </div>
     </li>
@@ -854,30 +865,6 @@ a{color:inherit}
     if (!prjAll) document.getElementById('projects').scrollIntoView({behavior:'smooth', block:'start'});
   });
   applyP();
-
-  // skill radar hover
-  var rdPts = Array.prototype.slice.call(document.querySelectorAll('.rd__pt'));
-  var rdRows = Array.prototype.slice.call(document.querySelectorAll('.rd__row'));
-  var rdTip = document.getElementById('rdtip');
-  var rdSvg = document.querySelector('.rd__svg');
-  function rdOn(i){
-    rdPts.forEach(function(p){ p.classList.toggle('is-on', p.dataset.i === i); });
-    rdRows.forEach(function(r){ r.classList.toggle('is-on', r.dataset.i === i); });
-    if (i === null){ rdTip.hidden = true; return; }
-    var row = rdRows[+i], dot = rdPts[+i].querySelector('.rd__dot');
-    var sb = rdSvg.getBoundingClientRect(), fb = rdSvg.parentNode.getBoundingClientRect();
-    var k = sb.width / 520;
-    rdTip.innerHTML = '<b>' + row.querySelector('.rd__n').textContent + ' · ' + row.querySelector('.rd__v').textContent +
-      '</b><br>' + row.querySelector('.rd__s').textContent;
-    rdTip.style.left = (sb.left - fb.left + (dot.cx.baseVal.value + 60) * k) + 'px';
-    rdTip.style.top = (sb.top - fb.top + (dot.cy.baseVal.value - 10) * k) + 'px';
-    rdTip.hidden = false;
-  }
-  rdPts.concat(rdRows).forEach(function(el){
-    el.addEventListener('mouseenter', function(){ rdOn(el.dataset.i); });
-    el.addEventListener('mouseleave', function(){ rdOn(null); });
-    el.addEventListener('click', function(){ rdOn(el.dataset.i); });
-  });
 
   // gentle reveal on scroll
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){

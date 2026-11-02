@@ -163,32 +163,20 @@ a{color:inherit}
 .more[hidden]{display:none}
 .more__n{background:var(--yellow);color:var(--ink);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.04em}
 
-/* skill radar */
-.rd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
-.rd__fig{position:relative;max-width:520px;width:100%;margin:0 auto}
-.rd__svg{width:100%;height:auto;display:block;overflow:visible}
-.rd__ring{fill:none;stroke:var(--line);stroke-width:1}
-.rd__axis{stroke:var(--line);stroke-width:1}
-.rd__area{fill:rgba(22,76,147,.16);stroke:var(--blue);stroke-width:2;stroke-linejoin:round}
-.rd__lbl{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink2)}
-.rd__dot{fill:var(--yellow);stroke:var(--blue);stroke-width:2;transition:r .15s}
-.rd__hit{fill:transparent;cursor:pointer}
-.rd__pt.is-on .rd__dot{r:7}
-.rd__tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--card);
-  font-family:var(--mono);font-size:11px;line-height:1.5;padding:8px 10px;border-radius:4px;max-width:220px;
-  transform:translate(-50%,calc(-100% - 12px));white-space:normal}
-.rd__tip b{font-weight:500;color:var(--yellow)}
-.rd__list{list-style:none;display:grid;gap:14px}
-.rd__row{padding:4px 0;border-radius:4px;transition:background .15s}
-.rd__row.is-on{background:var(--card);box-shadow:0 0 0 8px var(--card)}
-.rd__h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.rd__n{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em}
-.rd__v{font-family:var(--mono);font-size:12px;color:var(--blue)}
-.rd__bar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
-.rd__bar span{display:block;height:100%;background:var(--blue);border-radius:2px}
-.rd__e{font-size:14px;color:var(--ink2);margin-top:6px}
-.rd__s{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--orange);margin-top:3px}
-.rd__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:22px;letter-spacing:.03em}
+/* research expertise */
+.ex__row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1.25fr);gap:28px;
+  padding:24px 0;border-bottom:1px solid var(--line)}
+.ex__t{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.3}
+.ex__d{font-size:14.5px;color:var(--ink2);margin-top:6px}
+.ex__k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px}
+.ex__m{display:flex;flex-wrap:wrap;gap:6px}
+.ex__m span{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--blue);
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px}
+.ex__e{list-style:none;display:grid;gap:6px}
+.ex__e li{display:grid;grid-template-columns:44px 1fr;gap:10px;font-size:14px;color:var(--ink);line-height:1.45}
+.ex__e b{font-family:var(--mono);font-weight:400;font-size:11.5px;color:var(--orange);padding-top:2px}
+.ex__e em{color:var(--ink2)}
+.ex__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:18px;letter-spacing:.03em}
 
 /* research projects */
 .prjs{list-style:none}
@@ -255,7 +243,7 @@ a{color:inherit}
   .aw,.edu,.imp{grid-template-columns:1fr}
   .imp{gap:24px}
   .pub,.prj,.xp{grid-template-columns:1fr;gap:4px}
-  .rd{grid-template-columns:1fr;gap:28px}
+  .ex__row{grid-template-columns:1fr;gap:16px}
   .pub__y{padding-top:0}
   .nav__links{gap:14px}
   .nav__links a{font-size:10.5px}
@@ -280,7 +268,7 @@ a{color:inherit}
       <div class="nav__sw" aria-label="Profile version"><a href="./">Full</a><a href="learning.html" aria-current="page">Learning</a><a href="iot.html">IoT</a></div>
     </div>
     <div class="nav__links">
-      <a href="#skills">Skills</a>
+      <a href="#expertise">Expertise</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
@@ -316,7 +304,7 @@ a{color:inherit}
 
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__l">Years in higher education</div></div>
-    <div class="stat"><div class="stat__n">15</div><div class="stat__l">Learning publications</div></div>
+    <div class="stat"><div class="stat__n">14</div><div class="stat__l">Learning publications</div></div>
     <div class="stat"><div class="stat__n">6</div><div class="stat__l">Funded learning projects</div></div>
     <div class="stat"><div class="stat__n">1,000+</div><div class="stat__l">Teachers trained</div></div>
   </div>
@@ -325,61 +313,70 @@ a{color:inherit}
 
 <main>
 
-<section class="sec wrap" id="skills">
+<section class="sec wrap" id="expertise">
   <div class="sec__head">
-    <h2 class="sec__title">Skill profile</h2>
+    <h2 class="sec__title">Research expertise</h2>
     <span class="sec__meta">Learning &amp; education</span>
   </div>
-  <div class="rd">
-    <div class="rd__fig">
-    <svg class="rd__svg" viewBox="-60 10 520 380" role="img" aria-labelledby="rdt">
-      <title id="rdt">Skill profile radar: relative strength across six areas, derived from projects, publications, certifications, and roles</title>
-      <polygon class="rd__ring" points="200.0,176.4 220.4,188.2 220.4,211.8 200.0,223.6 179.6,211.8 179.6,188.2"/><polygon class="rd__ring" points="200.0,152.8 240.9,176.4 240.9,223.6 200.0,247.2 159.1,223.6 159.1,176.4"/><polygon class="rd__ring" points="200.0,129.2 261.3,164.6 261.3,235.4 200.0,270.8 138.7,235.4 138.7,164.6"/><polygon class="rd__ring" points="200.0,105.6 281.8,152.8 281.8,247.2 200.0,294.4 118.2,247.2 118.2,152.8"/><polygon class="rd__ring" points="200.0,82.0 302.2,141.0 302.2,259.0 200.0,318.0 97.8,259.0 97.8,141.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="82.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="141.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="318.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="141.0"/>
-      <polygon class="rd__area" points="200.0,82.0 282.8,152.2 225.5,214.8 200.0,236.6 142.8,233.0 117.2,152.2"/>
-      <text class="rd__lbl" x="200.0" y="56.0" text-anchor="middle">Game-based</text><text class="rd__lbl" x="321.2" y="134.0" text-anchor="start">Comp. thinking</text><text class="rd__lbl" x="321.2" y="274.0" text-anchor="start">Learning analytics</text><text class="rd__lbl" x="200.0" y="352.0" text-anchor="middle">AR &amp; virtual</text><text class="rd__lbl" x="78.8" y="274.0" text-anchor="end">E-learning &amp; LMS</text><text class="rd__lbl" x="78.8" y="134.0" text-anchor="end">Vocational</text><g class="rd__pt" data-i="0"><circle class="rd__hit" cx="200.0" cy="82.0" r="16"/><circle class="rd__dot" cx="200.0" cy="82.0" r="5"/></g><g class="rd__pt" data-i="1"><circle class="rd__hit" cx="282.8" cy="152.2" r="16"/><circle class="rd__dot" cx="282.8" cy="152.2" r="5"/></g><g class="rd__pt" data-i="2"><circle class="rd__hit" cx="225.5" cy="214.8" r="16"/><circle class="rd__dot" cx="225.5" cy="214.8" r="5"/></g><g class="rd__pt" data-i="3"><circle class="rd__hit" cx="200.0" cy="236.6" r="16"/><circle class="rd__dot" cx="200.0" cy="236.6" r="5"/></g><g class="rd__pt" data-i="4"><circle class="rd__hit" cx="142.8" cy="233.0" r="16"/><circle class="rd__dot" cx="142.8" cy="233.0" r="5"/></g><g class="rd__pt" data-i="5"><circle class="rd__hit" cx="117.2" cy="152.2" r="16"/><circle class="rd__dot" cx="117.2" cy="152.2" r="5"/></g>
-    </svg>
-    <div class="rd__tip" id="rdtip" hidden></div>
+  <div class="ex">
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Game-based &amp; immersive learning</h3>
+        <p class="ex__d">Educational games, augmented reality, and gamified platforms designed to build mathematical and computational thinking.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Research &amp; development</span><span>Gamification design</span><span>Augmented reality</span><span>Pre/post learning evaluation</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2024</b><span>AR educational game based on Realistic Mathematics Education — <em>Inteligensi</em></span></li><li><b>2024</b><span>Educational RPG for literacy — <em>ICCE, Manila</em></span></li><li><b>2024</b><span>E-learning gamification for mathematics — <em>Inteligensi</em></span></li><li><b>2023</b><span>Funded project lead: AR RME game for computational thinking</span></li></ul>
+      </div>
     </div>
-    <ol class="rd__list">
-      <li class="rd__row" data-i="0">
-        <div class="rd__h"><span class="rd__n">Game-based learning</span><span class="rd__v">100</span></div>
-        <div class="rd__bar"><span style="width:100%"></span></div>
-        <div class="rd__e">Serious games, educational RPGs, gamified e-learning, and a Scratch science-games series</div>
-        <div class="rd__s">2 projects led · 3 projects · 4 publications</div>
-      </li>
-      <li class="rd__row" data-i="1">
-        <div class="rd__h"><span class="rd__n">Computational thinking</span><span class="rd__v">81</span></div>
-        <div class="rd__bar"><span style="width:81%"></span></div>
-        <div class="rd__e">AR and game-based CT interventions, CT-focused LMS, Gerakan Pandai teacher training</div>
-        <div class="rd__s">2 projects led · 1 project · 2 publications · 1 national programme role</div>
-      </li>
-      <li class="rd__row" data-i="2">
-        <div class="rd__h"><span class="rd__n">Learning analytics</span><span class="rd__v">25</span></div>
-        <div class="rd__bar"><span style="width:25%"></span></div>
-        <div class="rd__e">Step and time traces in Viat-Map, assessment-for-learning data in the LMS</div>
-        <div class="rd__s">2 publications · 1 award</div>
-      </li>
-      <li class="rd__row" data-i="3">
-        <div class="rd__h"><span class="rd__n">Augmented &amp; virtual learning</span><span class="rd__v">31</span></div>
-        <div class="rd__bar"><span style="width:31%"></span></div>
-        <div class="rd__e">Augmented-reality mathematics game, virtual image-processing laboratory</div>
-        <div class="rd__s">1 project led · 2 publications</div>
-      </li>
-      <li class="rd__row" data-i="4">
-        <div class="rd__h"><span class="rd__n">E-learning &amp; LMS design</span><span class="rd__v">56</span></div>
-        <div class="rd__bar"><span style="width:56%"></span></div>
-        <div class="rd__e">Assessment-for-learning LMS, online classrooms, life-based e-learning models</div>
-        <div class="rd__s">1 project · 5 publications · 1 certification</div>
-      </li>
-      <li class="rd__row" data-i="5">
-        <div class="rd__h"><span class="rd__n">Vocational &amp; curriculum design</span><span class="rd__v">81</span></div>
-        <div class="rd__bar"><span style="width:81%"></span></div>
-        <div class="rd__e">Applied-degree curriculum design, life-based and work-based learning, TVET</div>
-        <div class="rd__s">1 project · 6 publications · 1 fellowship · 1 lecturer role</div>
-      </li>
-    </ol>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Computational thinking</h3>
+        <p class="ex__d">Learning platforms and teacher programmes that bring computational thinking into ordinary classrooms.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Assessment for learning</span><span>LMS design</span><span>Teacher professional development</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2022</b><span>LMS based on assessment for learning to improve CT — <em>iJIM</em></span></li><li><b>2022</b><span>Funded project lead: gamification of CT learning</span></li><li><b>—</b><span>Gerakan Pandai team leader: 1,000+ teachers, 10,000+ students</span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Learning analytics</h3>
+        <p class="ex__d">Reading how students think from what they do: step counts, timing, and interaction logs.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Log &amp; trace analysis</span><span>Behavioural indicators</span><span>Concept-map learning tools</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2024</b><span>Student behaviour in Viat-Map: steps and time as indicators — <em>ICCE, Manila</em></span></li><li><b>2022</b><span>Silver Award, NIICE — Viat-Map log analysis</span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Vocational education &amp; curriculum</h3>
+        <p class="ex__d">Life-based and work-based learning models and outcome-based curriculum design for applied degrees.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Life-based learning</span><span>Work-based learning</span><span>Outcome-based curriculum</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2022</b><span>Improving vocational education quality through life-based learning — <em>book chapter, Taylor &amp; Francis</em></span></li><li><b>2020</b><span>Life-based e-learning models in mechatronics — <em>IEEE</em></span></li><li><b>2019</b><span>Improving vocational school quality through WBL-IC — <em>IEEE</em></span></li><li><b>2023</b><span>Australia Awards — New Technologies in TVET, QUT</span></li></ul>
+      </div>
+    </div>
   </div>
-  <p class="rd__note">Relative score (strongest area = 100). Weighted from the record on this page: project led 3, project member 2, publication 1, certification 2, relevant role 3, award 2.</p>
+  <p class="ex__note">Evidence lists peer-reviewed output, funded projects (as lead or member), awards, and certifications from this page.</p>
 </section>
 
 <section class="sec wrap" id="experience">
@@ -422,7 +419,7 @@ a{color:inherit}
 <section class="sec wrap" id="publications">
   <div class="sec__head">
     <h2 class="sec__title">Publications</h2>
-    <span class="sec__meta">15 items</span>
+    <span class="sec__meta">14 items</span>
   </div>
   <div class="filters" id="filters">
     <button class="f" data-tag="all" aria-pressed="true">All</button>
@@ -433,11 +430,11 @@ a{color:inherit}
 
   <ul class="pubs" id="pubs">
 
-    <li class="pub" data-year="2025" data-tag="learning">
-      <div class="pub__y">2025</div>
+    <li class="pub" data-year="2024" data-tag="learning">
+      <div class="pub__y">2024</div>
       <div>
         <div class="pub__t"><a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/view/6534" target="_blank" rel="noopener">Development of e-learning gamification to improve mathematics learning results</a></div>
-        <div class="pub__v">Inteligensi: Jurnal Ilmu Pendidikan, 7(2), 168–179</div>
+        <div class="pub__v">Inteligensi: Jurnal Ilmu Pendidikan, 7(2), 119–126</div>
         <span class="pub__tag">Journal article</span>
       </div>
     </li>
@@ -472,7 +469,7 @@ a{color:inherit}
     <li class="pub" data-year="2023" data-tag="vocational">
       <div class="pub__y">2023</div>
       <div>
-        <div class="pub__t"><a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" target="_blank" rel="noopener">Curriculum design for the applied undergraduate business information system study program</a></div>
+        <div class="pub__t"><a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" target="_blank" rel="noopener">Curriculum design for the applied undergraduate business information system study program: focus on learning outcomes required in Indonesia</a></div>
         <div class="pub__v">Nusantara Science and Technology Proceedings, 73–81</div>
         <span class="pub__tag">Journal article</span>
       </div>
@@ -496,6 +493,15 @@ a{color:inherit}
       </div>
     </li>
 
+    <li class="pub" data-year="2023" data-tag="vocational">
+      <div class="pub__y">2023</div>
+      <div>
+        <div class="pub__t"><a href="https://doi.org/10.1063/5.0130398" target="_blank" rel="noopener">Improving the quality of vocational education through life-based learning</a></div>
+        <div class="pub__v">AIP Conference Proceedings</div>
+        <span class="pub__tag">Conference paper</span>
+      </div>
+    </li>
+
     <li class="pub" data-year="2022" data-tag="learning">
       <div class="pub__y">2022</div>
       <div>
@@ -514,15 +520,6 @@ a{color:inherit}
       </div>
     </li>
 
-    <li class="pub" data-year="2022" data-tag="vocational">
-      <div class="pub__y">2022</div>
-      <div>
-        <div class="pub__t"><a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" target="_blank" rel="noopener">Curriculum design for the applied undergraduate business information system study program: focus on learning outcomes required in Indonesia</a></div>
-        <div class="pub__v">International Conference on Vocational Innovation and Applied Sciences (ICVIAS)</div>
-        <span class="pub__tag">Conference paper</span>
-      </div>
-    </li>
-
     <li class="pub" data-year="2021" data-tag="learning">
       <div class="pub__y">2021</div>
       <div>
@@ -532,17 +529,8 @@ a{color:inherit}
       </div>
     </li>
 
-    <li class="pub" data-year="2020" data-tag="learning">
-      <div class="pub__y">2020</div>
-      <div>
-        <div class="pub__t"><a href="https://ieeexplore.ieee.org/document/9230332" target="_blank" rel="noopener">Life-based e-learning models in mechatronics</a></div>
-        <div class="pub__v">IEEE International Conference on Vocational Education and Training</div>
-        <span class="pub__tag">Conference paper</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2020" data-tag="learning">
-      <div class="pub__y">2020</div>
+    <li class="pub" data-year="2021" data-tag="learning">
+      <div class="pub__y">2021</div>
       <div>
         <div class="pub__t"><a href="https://iopscience.iop.org/article/10.1088/1757-899X/1073/1/012064/pdf" target="_blank" rel="noopener">Enhancing student interest in learning through the development of serious mathematics games</a></div>
         <div class="pub__v">Journal of Physics: Conference Series</div>
@@ -550,11 +538,11 @@ a{color:inherit}
       </div>
     </li>
 
-    <li class="pub" data-year="2020" data-tag="vocational">
+    <li class="pub" data-year="2020" data-tag="learning">
       <div class="pub__y">2020</div>
       <div>
-        <div class="pub__t"><a href="https://pubs.aip.org/aip/acp/article-abstract/2531/1/050001/2887510/Improving-vocational-education-quality-through" target="_blank" rel="noopener">Improving the quality of vocational education through life-based learning</a></div>
-        <div class="pub__v">AIP Conference Proceedings</div>
+        <div class="pub__t"><a href="https://ieeexplore.ieee.org/document/9230332" target="_blank" rel="noopener">Life-based e-learning models in mechatronics</a></div>
+        <div class="pub__v">IEEE International Conference on Vocational Education and Training</div>
         <span class="pub__tag">Conference paper</span>
       </div>
     </li>
@@ -799,30 +787,6 @@ a{color:inherit}
     if (!prjAll) document.getElementById('projects').scrollIntoView({behavior:'smooth', block:'start'});
   });
   applyP();
-
-  // skill radar hover
-  var rdPts = Array.prototype.slice.call(document.querySelectorAll('.rd__pt'));
-  var rdRows = Array.prototype.slice.call(document.querySelectorAll('.rd__row'));
-  var rdTip = document.getElementById('rdtip');
-  var rdSvg = document.querySelector('.rd__svg');
-  function rdOn(i){
-    rdPts.forEach(function(p){ p.classList.toggle('is-on', p.dataset.i === i); });
-    rdRows.forEach(function(r){ r.classList.toggle('is-on', r.dataset.i === i); });
-    if (i === null){ rdTip.hidden = true; return; }
-    var row = rdRows[+i], dot = rdPts[+i].querySelector('.rd__dot');
-    var sb = rdSvg.getBoundingClientRect(), fb = rdSvg.parentNode.getBoundingClientRect();
-    var k = sb.width / 520;
-    rdTip.innerHTML = '<b>' + row.querySelector('.rd__n').textContent + ' · ' + row.querySelector('.rd__v').textContent +
-      '</b><br>' + row.querySelector('.rd__s').textContent;
-    rdTip.style.left = (sb.left - fb.left + (dot.cx.baseVal.value + 60) * k) + 'px';
-    rdTip.style.top = (sb.top - fb.top + (dot.cy.baseVal.value - 10) * k) + 'px';
-    rdTip.hidden = false;
-  }
-  rdPts.concat(rdRows).forEach(function(el){
-    el.addEventListener('mouseenter', function(){ rdOn(el.dataset.i); });
-    el.addEventListener('mouseleave', function(){ rdOn(null); });
-    el.addEventListener('click', function(){ rdOn(el.dataset.i); });
-  });
 
   // gentle reveal on scroll
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
