@@ -163,32 +163,20 @@ a{color:inherit}
 .more[hidden]{display:none}
 .more__n{background:var(--yellow);color:var(--ink);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.04em}
 
-/* skill radar */
-.rd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
-.rd__fig{position:relative;max-width:520px;width:100%;margin:0 auto}
-.rd__svg{width:100%;height:auto;display:block;overflow:visible}
-.rd__ring{fill:none;stroke:var(--line);stroke-width:1}
-.rd__axis{stroke:var(--line);stroke-width:1}
-.rd__area{fill:rgba(22,76,147,.16);stroke:var(--blue);stroke-width:2;stroke-linejoin:round}
-.rd__lbl{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink2)}
-.rd__dot{fill:var(--yellow);stroke:var(--blue);stroke-width:2;transition:r .15s}
-.rd__hit{fill:transparent;cursor:pointer}
-.rd__pt.is-on .rd__dot{r:7}
-.rd__tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--card);
-  font-family:var(--mono);font-size:11px;line-height:1.5;padding:8px 10px;border-radius:4px;max-width:220px;
-  transform:translate(-50%,calc(-100% - 12px));white-space:normal}
-.rd__tip b{font-weight:500;color:var(--yellow)}
-.rd__list{list-style:none;display:grid;gap:14px}
-.rd__row{padding:4px 0;border-radius:4px;transition:background .15s}
-.rd__row.is-on{background:var(--card);box-shadow:0 0 0 8px var(--card)}
-.rd__h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.rd__n{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em}
-.rd__v{font-family:var(--mono);font-size:12px;color:var(--blue)}
-.rd__bar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
-.rd__bar span{display:block;height:100%;background:var(--blue);border-radius:2px}
-.rd__e{font-size:14px;color:var(--ink2);margin-top:6px}
-.rd__s{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--orange);margin-top:3px}
-.rd__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:22px;letter-spacing:.03em}
+/* research expertise */
+.ex__row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1.25fr);gap:28px;
+  padding:24px 0;border-bottom:1px solid var(--line)}
+.ex__t{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.3}
+.ex__d{font-size:14.5px;color:var(--ink2);margin-top:6px}
+.ex__k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px}
+.ex__m{display:flex;flex-wrap:wrap;gap:6px}
+.ex__m span{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--blue);
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px}
+.ex__e{list-style:none;display:grid;gap:6px}
+.ex__e li{display:grid;grid-template-columns:44px 1fr;gap:10px;font-size:14px;color:var(--ink);line-height:1.45}
+.ex__e b{font-family:var(--mono);font-weight:400;font-size:11.5px;color:var(--orange);padding-top:2px}
+.ex__e em{color:var(--ink2)}
+.ex__note{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:18px;letter-spacing:.03em}
 
 /* research projects */
 .prjs{list-style:none}
@@ -253,7 +241,7 @@ a{color:inherit}
   .aw,.edu,.imp{grid-template-columns:1fr}
   .imp{gap:24px}
   .pub,.prj,.xp{grid-template-columns:1fr;gap:4px}
-  .rd{grid-template-columns:1fr;gap:28px}
+  .ex__row{grid-template-columns:1fr;gap:16px}
   .pub__y{padding-top:0}
   .nav__links{gap:14px}
   .nav__links a{font-size:10.5px}
@@ -278,7 +266,7 @@ a{color:inherit}
       <div class="nav__sw" aria-label="Profile version"><a href="./" aria-current="page">Full</a><a href="learning.html">Learning</a><a href="iot.html">IoT</a></div>
     </div>
     <div class="nav__links">
-      <a href="#skills">Skills</a>
+      <a href="#expertise">Expertise</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
@@ -314,7 +302,7 @@ a{color:inherit}
 
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__l">Years in higher education</div></div>
-    <div class="stat"><div class="stat__n">31</div><div class="stat__l">Publications</div></div>
+    <div class="stat"><div class="stat__n">30</div><div class="stat__l">Publications</div></div>
     <div class="stat"><div class="stat__n">70+</div><div class="stat__l">Theses supervised since 2016</div></div>
     <div class="stat"><div class="stat__n">6</div><div class="stat__l">Awards &amp; fellowships</div></div>
   </div>
@@ -323,61 +311,98 @@ a{color:inherit}
 
 <main>
 
-<section class="sec wrap" id="skills">
+<section class="sec wrap" id="expertise">
   <div class="sec__head">
-    <h2 class="sec__title">Skill profile</h2>
-    <span class="sec__meta">Based on projects &amp; output</span>
+    <h2 class="sec__title">Research expertise</h2>
+    <span class="sec__meta">Areas, methods &amp; evidence</span>
   </div>
-  <div class="rd">
-    <div class="rd__fig">
-    <svg class="rd__svg" viewBox="-60 10 520 380" role="img" aria-labelledby="rdt">
-      <title id="rdt">Skill profile radar: relative strength across six areas, derived from projects, publications, certifications, and roles</title>
-      <polygon class="rd__ring" points="200.0,176.4 220.4,188.2 220.4,211.8 200.0,223.6 179.6,211.8 179.6,188.2"/><polygon class="rd__ring" points="200.0,152.8 240.9,176.4 240.9,223.6 200.0,247.2 159.1,223.6 159.1,176.4"/><polygon class="rd__ring" points="200.0,129.2 261.3,164.6 261.3,235.4 200.0,270.8 138.7,235.4 138.7,164.6"/><polygon class="rd__ring" points="200.0,105.6 281.8,152.8 281.8,247.2 200.0,294.4 118.2,247.2 118.2,152.8"/><polygon class="rd__ring" points="200.0,82.0 302.2,141.0 302.2,259.0 200.0,318.0 97.8,259.0 97.8,141.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="82.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="141.0"/><line class="rd__axis" x1="200" y1="200" x2="302.2" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="200.0" y2="318.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="259.0"/><line class="rd__axis" x1="200" y1="200" x2="97.8" y2="141.0"/>
-      <polygon class="rd__area" points="200.0,86.7 263.4,163.4 268.5,239.5 200.0,254.3 144.8,231.9 97.8,141.0"/>
-      <text class="rd__lbl" x="200.0" y="56.0" text-anchor="middle">EdTech &amp; games</text><text class="rd__lbl" x="321.2" y="134.0" text-anchor="start">IoT &amp; embedded</text><text class="rd__lbl" x="321.2" y="274.0" text-anchor="start">ML &amp; AI</text><text class="rd__lbl" x="200.0" y="352.0" text-anchor="middle">Computer vision</text><text class="rd__lbl" x="78.8" y="274.0" text-anchor="end">Systems analysis</text><text class="rd__lbl" x="78.8" y="134.0" text-anchor="end">Leadership</text><g class="rd__pt" data-i="0"><circle class="rd__hit" cx="200.0" cy="86.7" r="16"/><circle class="rd__dot" cx="200.0" cy="86.7" r="5"/></g><g class="rd__pt" data-i="1"><circle class="rd__hit" cx="263.4" cy="163.4" r="16"/><circle class="rd__dot" cx="263.4" cy="163.4" r="5"/></g><g class="rd__pt" data-i="2"><circle class="rd__hit" cx="268.5" cy="239.5" r="16"/><circle class="rd__dot" cx="268.5" cy="239.5" r="5"/></g><g class="rd__pt" data-i="3"><circle class="rd__hit" cx="200.0" cy="254.3" r="16"/><circle class="rd__dot" cx="200.0" cy="254.3" r="5"/></g><g class="rd__pt" data-i="4"><circle class="rd__hit" cx="144.8" cy="231.9" r="16"/><circle class="rd__dot" cx="144.8" cy="231.9" r="5"/></g><g class="rd__pt" data-i="5"><circle class="rd__hit" cx="97.8" cy="141.0" r="16"/><circle class="rd__dot" cx="97.8" cy="141.0" r="5"/></g>
-    </svg>
-    <div class="rd__tip" id="rdtip" hidden></div>
+  <div class="ex">
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Game-based &amp; immersive learning</h3>
+        <p class="ex__d">Educational games, augmented reality, and gamified platforms designed to build mathematical and computational thinking.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Research &amp; development</span><span>Gamification design</span><span>Augmented reality</span><span>Pre/post learning evaluation</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2024</b><span>AR educational game based on Realistic Mathematics Education — <em>Inteligensi</em></span></li><li><b>2024</b><span>Educational RPG for literacy — <em>ICCE, Manila</em></span></li><li><b>2024</b><span>E-learning gamification for mathematics — <em>Inteligensi</em></span></li><li><b>2023</b><span>Funded project lead: AR RME game for computational thinking</span></li></ul>
+      </div>
     </div>
-    <ol class="rd__list">
-      <li class="rd__row" data-i="0">
-        <div class="rd__h"><span class="rd__n">Educational technology &amp; game-based learning</span><span class="rd__v">96</span></div>
-        <div class="rd__bar"><span style="width:96%"></span></div>
-        <div class="rd__e">AR and gamified learning, serious games, LMS, computational thinking</div>
-        <div class="rd__s">2 projects led · 3 projects · 9 publications · 1 certification</div>
-      </li>
-      <li class="rd__row" data-i="1">
-        <div class="rd__h"><span class="rd__n">IoT &amp; embedded systems</span><span class="rd__v">62</span></div>
-        <div class="rd__bar"><span style="width:62%"></span></div>
-        <div class="rd__e">Crash detection, smart greenhouse, UAV monitoring, cable leakage-current sensing</div>
-        <div class="rd__s">1 project led · 3 projects · 6 publications</div>
-      </li>
-      <li class="rd__row" data-i="2">
-        <div class="rd__h"><span class="rd__n">Machine learning &amp; AI</span><span class="rd__v">67</span></div>
-        <div class="rd__bar"><span style="width:67%"></span></div>
-        <div class="rd__e">LSTM forecasting, LLM-based recommendation, geospatial AI, Naïve Bayes forensics</div>
-        <div class="rd__s">5 projects · 6 publications</div>
-      </li>
-      <li class="rd__row" data-i="3">
-        <div class="rd__h"><span class="rd__n">Computer vision</span><span class="rd__v">46</span></div>
-        <div class="rd__bar"><span style="width:46%"></span></div>
-        <div class="rd__e">Driver-drowsiness and safety-helmet detection, human-following robot</div>
-        <div class="rd__s">2 projects led · 1 project · 1 teaching role</div>
-      </li>
-      <li class="rd__row" data-i="4">
-        <div class="rd__h"><span class="rd__n">Software &amp; systems analysis</span><span class="rd__v">54</span></div>
-        <div class="rd__bar"><span style="width:54%"></span></div>
-        <div class="rd__e">Requirements and architecture, blockchain/ZKP, COBIT 5, mobile and OOP development</div>
-        <div class="rd__s">2 projects · 3 certifications · 1 analyst role</div>
-      </li>
-      <li class="rd__row" data-i="5">
-        <div class="rd__h"><span class="rd__n">Leadership &amp; mentoring</span><span class="rd__v">100</span></div>
-        <div class="rd__bar"><span style="width:100%"></span></div>
-        <div class="rd__e">Five funded projects led, ILM Level 3, SMI mentor &amp; consultant, 70+ theses supervised</div>
-        <div class="rd__s">5 projects led · 2 certifications · 2 Tech4Good awards · 1 trainer role · 1 thesis supervision</div>
-      </li>
-    </ol>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Learning analytics</h3>
+        <p class="ex__d">Reading how students think from what they do: step counts, timing, and interaction logs.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Log &amp; trace analysis</span><span>Behavioural indicators</span><span>Concept-map learning tools</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2024</b><span>Student behaviour in Viat-Map: steps and time as indicators — <em>ICCE, Manila</em></span></li><li><b>2022</b><span>Silver Award, NIICE — Viat-Map log analysis</span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">IoT &amp; sensor systems</h3>
+        <p class="ex__d">Connected devices that detect events and report them in real time, built for low-resource settings.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Sensor &amp; embedded prototyping</span><span>System design</span><span>Field evaluation</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2025</b><span>IoT-based crash detection system — <em>AIP Conference Proceedings (iCAST)</em></span></li><li><b>2024</b><span>Funded project lead: IoT car security for crash detection</span></li><li><b>2024</b><span>Best Paper Award — iCAST, Bandung</span></li><li><b>2024</b><span>Sensor-based fire detection devices — <em>Komputika</em></span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Computer vision</h3>
+        <p class="ex__d">Detecting people, posture, and protective equipment from camera feeds for safety-critical settings.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Image processing</span><span>Object &amp; state detection</span><span>Mobile deployment</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2026</b><span>Funded project lead: mobile driver-drowsiness detection for fleets</span></li><li><b>2025</b><span>Funded project lead: safety-helmet compliance monitoring</span></li><li><b>2026</b><span>Funded project: image-processing human-following robot</span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Machine learning &amp; forecasting</h3>
+        <p class="ex__d">Sequence models, classification, and data augmentation for prediction under noisy, limited data.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>LSTM / BiLSTM</span><span>Data augmentation</span><span>Naïve Bayes</span><span>Exponential smoothing</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2025</b><span>BiLSTM with multi-scenario preprocessing for weather forecasting — <em>ICAITech</em></span></li><li><b>2023</b><span>Digital forensics on Telegram using Naïve Bayes — <em>Sinkron</em></span></li><li><b>2021</b><span>Forecasting land business opportunities — <em>Jurnal Informatika Polinema</em></span></li></ul>
+      </div>
+    </div>
+    <div class="ex__row">
+      <div>
+        <h3 class="ex__t">Vocational education &amp; curriculum</h3>
+        <p class="ex__d">Life-based and work-based learning models and outcome-based curriculum design for applied degrees.</p>
+      </div>
+      <div>
+        <div class="ex__k">Methods</div>
+        <div class="ex__m"><span>Life-based learning</span><span>Work-based learning</span><span>Outcome-based curriculum</span></div>
+      </div>
+      <div>
+        <div class="ex__k">Selected evidence</div>
+        <ul class="ex__e"><li><b>2022</b><span>Improving vocational education quality through life-based learning — <em>book chapter, Taylor &amp; Francis</em></span></li><li><b>2020</b><span>Life-based e-learning models in mechatronics — <em>IEEE</em></span></li><li><b>2019</b><span>Improving vocational school quality through WBL-IC — <em>IEEE</em></span></li><li><b>2023</b><span>Australia Awards — New Technologies in TVET, QUT</span></li></ul>
+      </div>
+    </div>
   </div>
-  <p class="rd__note">Relative score (strongest area = 100). Weighted from the record on this page: project led 3, project member 2, publication 1, certification 2, relevant role 3, award 2.</p>
+  <p class="ex__note">Evidence lists peer-reviewed output, funded projects (as lead or member), awards, and certifications from this page.</p>
 </section>
 
 <section class="sec wrap" id="experience">
@@ -420,7 +445,7 @@ a{color:inherit}
 <section class="sec wrap" id="publications">
   <div class="sec__head">
     <h2 class="sec__title">Publications</h2>
-    <span class="sec__meta">31 items</span>
+    <span class="sec__meta">30 items</span>
   </div>
   <div class="filters" id="filters">
     <button class="f" data-tag="all" aria-pressed="true">All</button>
@@ -436,7 +461,7 @@ a{color:inherit}
     <li class="pub" data-year="2026" data-tag="vocational">
       <div class="pub__y">2026</div>
       <div>
-        <div class="pub__t"><a href="https://scholar.google.com/scholar?q=%22Pemberdayaan+Melalui+Pelatihan+dan+Penerapan+Sistem+Informasi+Keuangan+Digital+untuk+Penguatan+Branding+UMKM+Pandawa+Bunulrejo%22" target="_blank" rel="noopener">Empowerment through training and implementation of a digital financial information system to strengthen the branding of UMKM Pandawa Bunulrejo, Malang</a></div>
+        <div class="pub__t"><a href="https://doi.org/10.58545/djpm.v5i2.936" target="_blank" rel="noopener">Empowerment through training and implementation of a digital financial information system to strengthen the branding of UMKM Pandawa Bunulrejo, Malang</a></div>
         <div class="pub__v">DEDIKASI SAINTEK: Jurnal Pengabdian Masyarakat, 5(2), 152–166</div>
         <span class="pub__tag">Journal article</span>
       </div>
@@ -447,15 +472,6 @@ a{color:inherit}
       <div>
         <div class="pub__t"><a href="https://scholar.google.com/scholar?q=%22Peningkatan+Brand+Awareness+Melalui+Redesain+Kemasan%22" target="_blank" rel="noopener">Increasing brand awareness through packaging redesign: mentoring UMKM Pandawa Food &amp; Cookies Bunulrejo</a></div>
         <div class="pub__v">Jurnal Pengabdian kepada Masyarakat, 13(1), 25–30</div>
-        <span class="pub__tag">Journal article</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2025" data-tag="learning">
-      <div class="pub__y">2025</div>
-      <div>
-        <div class="pub__t"><a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/view/6534" target="_blank" rel="noopener">Development of e-learning gamification to improve mathematics learning results</a></div>
-        <div class="pub__v">Inteligensi: Jurnal Ilmu Pendidikan, 7(2), 168–179</div>
         <span class="pub__tag">Journal article</span>
       </div>
     </li>
@@ -475,6 +491,15 @@ a{color:inherit}
         <div class="pub__t"><a href="https://pubs.aip.org/aip/acp/article-abstract/3334/1/030008/3370126/IoT-based-crash-detection-system" target="_blank" rel="noopener">IoT-based crash detection system</a></div>
         <div class="pub__v">7th International Conference on Applied Science and Technology (iCAST), Bandung</div>
         <span class="pub__tag">Conference paper</span>
+      </div>
+    </li>
+
+    <li class="pub" data-year="2024" data-tag="learning">
+      <div class="pub__y">2024</div>
+      <div>
+        <div class="pub__t"><a href="https://jurnal.unitri.ac.id/index.php/inteligensi/article/view/6534" target="_blank" rel="noopener">Development of e-learning gamification to improve mathematics learning results</a></div>
+        <div class="pub__v">Inteligensi: Jurnal Ilmu Pendidikan, 7(2), 119–126</div>
+        <span class="pub__tag">Journal article</span>
       </div>
     </li>
 
@@ -514,10 +539,19 @@ a{color:inherit}
       </div>
     </li>
 
+    <li class="pub" data-year="2024" data-tag="iot">
+      <div class="pub__y">2024</div>
+      <div>
+        <div class="pub__t"><a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" target="_blank" rel="noopener">Development of sensor-based fire detection devices for electronic security</a></div>
+        <div class="pub__v">Komputika: Jurnal Sistem Komputer, 13(1), 121–130</div>
+        <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
+
     <li class="pub" data-year="2023" data-tag="vocational">
       <div class="pub__y">2023</div>
       <div>
-        <div class="pub__t"><a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" target="_blank" rel="noopener">Curriculum design for the applied undergraduate business information system study program</a></div>
+        <div class="pub__t"><a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" target="_blank" rel="noopener">Curriculum design for the applied undergraduate business information system study program: focus on learning outcomes required in Indonesia</a></div>
         <div class="pub__v">Nusantara Science and Technology Proceedings, 73–81</div>
         <span class="pub__tag">Journal article</span>
       </div>
@@ -535,8 +569,8 @@ a{color:inherit}
     <li class="pub" data-year="2023" data-tag="data">
       <div class="pub__y">2023</div>
       <div>
-        <div class="pub__t"><a href="https://journals.usm.ac.id/index.php/transformatika/article/view/6274" target="_blank" rel="noopener">Digital forensic investigation of sexual harassment on Telegram using Naïve Bayes</a></div>
-        <div class="pub__v">Jurnal Transformatika, 21(1)</div>
+        <div class="pub__t"><a href="https://doi.org/10.33395/sinkron.v8i3.12514" target="_blank" rel="noopener">Digital forensic investigation of sexual harassment on Telegram using Naïve Bayes</a></div>
+        <div class="pub__v">Sinkron: Jurnal dan Penelitian Teknik Informatika, 8(3), 1409–1417</div>
         <span class="pub__tag">Journal article</span>
       </div>
     </li>
@@ -556,6 +590,15 @@ a{color:inherit}
         <div class="pub__t"><a href="https://journals.usm.ac.id/index.php/transformatika/article/view/6274" target="_blank" rel="noopener">Identifying heart disease using machine learning</a></div>
         <div class="pub__v">Jurnal Transformatika, 21(1)</div>
         <span class="pub__tag">Journal article</span>
+      </div>
+    </li>
+
+    <li class="pub" data-year="2023" data-tag="vocational">
+      <div class="pub__y">2023</div>
+      <div>
+        <div class="pub__t"><a href="https://doi.org/10.1063/5.0130398" target="_blank" rel="noopener">Improving the quality of vocational education through life-based learning</a></div>
+        <div class="pub__v">AIP Conference Proceedings</div>
+        <span class="pub__tag">Conference paper</span>
       </div>
     </li>
 
@@ -586,15 +629,6 @@ a{color:inherit}
       </div>
     </li>
 
-    <li class="pub" data-year="2022" data-tag="vocational">
-      <div class="pub__y">2022</div>
-      <div>
-        <div class="pub__t"><a href="https://nstproceeding.com/index.php/nuscientech/article/view/891" target="_blank" rel="noopener">Curriculum design for the applied undergraduate business information system study program: focus on learning outcomes required in Indonesia</a></div>
-        <div class="pub__v">International Conference on Vocational Innovation and Applied Sciences (ICVIAS)</div>
-        <span class="pub__tag">Conference paper</span>
-      </div>
-    </li>
-
     <li class="pub" data-year="2021" data-tag="data">
       <div class="pub__y">2021</div>
       <div>
@@ -622,6 +656,15 @@ a{color:inherit}
       </div>
     </li>
 
+    <li class="pub" data-year="2021" data-tag="learning">
+      <div class="pub__y">2021</div>
+      <div>
+        <div class="pub__t"><a href="https://iopscience.iop.org/article/10.1088/1757-899X/1073/1/012064/pdf" target="_blank" rel="noopener">Enhancing student interest in learning through the development of serious mathematics games</a></div>
+        <div class="pub__v">Journal of Physics: Conference Series</div>
+        <span class="pub__tag">Conference paper</span>
+      </div>
+    </li>
+
     <li class="pub" data-year="2020" data-tag="learning">
       <div class="pub__y">2020</div>
       <div>
@@ -631,30 +674,12 @@ a{color:inherit}
       </div>
     </li>
 
-    <li class="pub" data-year="2020" data-tag="learning">
-      <div class="pub__y">2020</div>
-      <div>
-        <div class="pub__t"><a href="https://iopscience.iop.org/article/10.1088/1757-899X/1073/1/012064/pdf" target="_blank" rel="noopener">Enhancing student interest in learning through the development of serious mathematics games</a></div>
-        <div class="pub__v">Journal of Physics: Conference Series</div>
-        <span class="pub__tag">Conference paper</span>
-      </div>
-    </li>
-
     <li class="pub" data-year="2020" data-tag="vocational">
       <div class="pub__y">2020</div>
       <div>
-        <div class="pub__t"><a href="https://pubs.aip.org/aip/acp/article-abstract/2531/1/050001/2887510/Improving-vocational-education-quality-through" target="_blank" rel="noopener">Improving the quality of vocational education through life-based learning</a></div>
-        <div class="pub__v">AIP Conference Proceedings</div>
+        <div class="pub__t"><a href="https://iopscience.iop.org/article/10.1088/1757-899X/732/1/012070" target="_blank" rel="noopener">Application development of website content filling in the information technology department</a></div>
+        <div class="pub__v">Advanced Technology, Applied Science, and Engineering Conference, Batu</div>
         <span class="pub__tag">Conference paper</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2020" data-tag="iot">
-      <div class="pub__y">2020</div>
-      <div>
-        <div class="pub__t"><a href="https://ojs.unikom.ac.id/index.php/komputika/article/download/9997/4321" target="_blank" rel="noopener">Development of sensor-based fire detection devices for electronic security</a></div>
-        <div class="pub__v">Komputika: Jurnal Sistem Komputer, 13(1), 1–10</div>
-        <span class="pub__tag">Journal article</span>
       </div>
     </li>
 
@@ -672,15 +697,6 @@ a{color:inherit}
       <div>
         <div class="pub__t"><a href="https://ieeexplore.ieee.org/document/8981424" target="_blank" rel="noopener">Improving quality of education in vocational school through WBL-IC</a></div>
         <div class="pub__v">International Conference on Electrical, Electronics and Information Engineering, Bali</div>
-        <span class="pub__tag">Conference paper</span>
-      </div>
-    </li>
-
-    <li class="pub" data-year="2019" data-tag="vocational">
-      <div class="pub__y">2019</div>
-      <div>
-        <div class="pub__t"><a href="https://iopscience.iop.org/article/10.1088/1757-899X/732/1/012070" target="_blank" rel="noopener">Application development of website content filling in the information technology department</a></div>
-        <div class="pub__v">Advanced Technology, Applied Science, and Engineering Conference, Batu</div>
         <span class="pub__tag">Conference paper</span>
       </div>
     </li>
@@ -706,8 +722,8 @@ a{color:inherit}
     <li class="pub" data-year="2017" data-tag="iot">
       <div class="pub__y">2017</div>
       <div>
-        <div class="pub__t"><a href="https://ieeexplore.ieee.org/document/8281914" target="_blank" rel="noopener">Queue models in healthcare facilities information systems</a></div>
-        <div class="pub__v">International Conference of Communication and Informatics Engineering (ICCIE), Malang</div>
+        <div class="pub__t"><a href="https://doi.org/10.1109/ICEEIE.2017.8328780" target="_blank" rel="noopener">Queue models in healthcare facilities information systems</a></div>
+        <div class="pub__v">5th International Conference on Electrical, Electronics and Information Engineering (ICEEIE), Malang</div>
         <span class="pub__tag">Conference paper</span>
       </div>
     </li>
@@ -1094,30 +1110,6 @@ a{color:inherit}
     if (!prjAll) document.getElementById('projects').scrollIntoView({behavior:'smooth', block:'start'});
   });
   applyP();
-
-  // skill radar hover
-  var rdPts = Array.prototype.slice.call(document.querySelectorAll('.rd__pt'));
-  var rdRows = Array.prototype.slice.call(document.querySelectorAll('.rd__row'));
-  var rdTip = document.getElementById('rdtip');
-  var rdSvg = document.querySelector('.rd__svg');
-  function rdOn(i){
-    rdPts.forEach(function(p){ p.classList.toggle('is-on', p.dataset.i === i); });
-    rdRows.forEach(function(r){ r.classList.toggle('is-on', r.dataset.i === i); });
-    if (i === null){ rdTip.hidden = true; return; }
-    var row = rdRows[+i], dot = rdPts[+i].querySelector('.rd__dot');
-    var sb = rdSvg.getBoundingClientRect(), fb = rdSvg.parentNode.getBoundingClientRect();
-    var k = sb.width / 520;
-    rdTip.innerHTML = '<b>' + row.querySelector('.rd__n').textContent + ' · ' + row.querySelector('.rd__v').textContent +
-      '</b><br>' + row.querySelector('.rd__s').textContent;
-    rdTip.style.left = (sb.left - fb.left + (dot.cx.baseVal.value + 60) * k) + 'px';
-    rdTip.style.top = (sb.top - fb.top + (dot.cy.baseVal.value - 10) * k) + 'px';
-    rdTip.hidden = false;
-  }
-  rdPts.concat(rdRows).forEach(function(el){
-    el.addEventListener('mouseenter', function(){ rdOn(el.dataset.i); });
-    el.addEventListener('mouseleave', function(){ rdOn(null); });
-    el.addEventListener('click', function(){ rdOn(el.dataset.i); });
-  });
 
   // gentle reveal on scroll
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
